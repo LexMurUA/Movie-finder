@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { TMDB_URL_MAIN } from '../constants/api';
-
+import { TMDB_API_KEY, TMDB_URL_MAIN } from '../constants/api';
+import type { TopRatedMoviesResponse } from '../interfaces/api';
 
 
 export const TMDB = createApi({
@@ -9,6 +9,11 @@ export const TMDB = createApi({
     baseUrl: TMDB_URL_MAIN
   }),
   endpoints:(builder)=>({
-    getTopRatedMovies: builder.query<>
+    getTopRatedMovies: builder.query<TopRatedMoviesResponse,void>({
+      query:()=>`/movie/top_rated?api_key=${TMDB_API_KEY}&language=uk-UA`
+    })
   })
 })
+
+
+export const {useGetTopRatedMoviesQuery} = TMDB
