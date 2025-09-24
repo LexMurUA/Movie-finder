@@ -1,10 +1,11 @@
+import { useGetAllGenresMoviesQuery } from "../../api/api"
 import type { MovieType } from "../../interfaces/api"
 
 
-export const Movie = ({id,title,original_title,poster_path,popularity,
+export const Movie = ({id,title,genre_ids,original_title,poster_path,popularity,
     original_language,release_date,overview,vote_average,vote_count
 }:MovieType) => {
-
+    const {data}=useGetAllGenresMoviesQuery()
 
     return (
         <div key={id}>
@@ -12,10 +13,11 @@ export const Movie = ({id,title,original_title,poster_path,popularity,
             
                 <h3>{title}/{original_title}</h3>
                 <img src={poster_path} alt={title} />
-                <span>Популярність: {popularity}</span>
+                <span>Рейтинг TMDB: {popularity}</span>
                 <span>Мова оригіналу: {original_language}</span>
                 <span>Дата виходу: {release_date}</span>
                 <span>Опис</span>
+                <span>Жанр {}</span>
                 <article>
                     {overview}
                 </article>

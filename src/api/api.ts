@@ -11,9 +11,12 @@ export const TMDB = createApi({
   endpoints:(builder)=>({
     getTopRatedMovies: builder.query<TopRatedMoviesResponse,void>({
       query:()=>`/movie/top_rated?api_key=${TMDB_API_KEY}&language=uk-UA`
+    }),
+    getAllGenresMovies:builder.query({
+      query:()=>`/genre/movie/list?api_key=${TMDB_API_KEY}&language=uk-UA`
     })
   })
 })
 
 
-export const {useGetTopRatedMoviesQuery} = TMDB
+export const {useGetTopRatedMoviesQuery,useGetAllGenresMoviesQuery} = TMDB

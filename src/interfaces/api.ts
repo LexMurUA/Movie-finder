@@ -21,3 +21,7 @@ export interface TopRatedMoviesResponse {
   total_pages: number
   total_results: number
 }
+export interface MovieGenre {
+    id:number;
+    name:string
+}

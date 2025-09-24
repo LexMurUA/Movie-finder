@@ -1,12 +1,14 @@
-import { useGetTopRatedMoviesQuery } from "../../api/api"
+import { useGetAllGenresMoviesQuery, useGetTopRatedMoviesQuery } from "../../api/api"
 import { Movie } from "../Movie/Movie";
 
 
 
 
 export const TopRatedMovies = () => {
-    const { data,isLoading
- } = useGetTopRatedMoviesQuery()
+    const { data,isLoading} = useGetTopRatedMoviesQuery()
+    const datas = useGetAllGenresMoviesQuery()
+    console.log(datas);
+    
  
  
  
