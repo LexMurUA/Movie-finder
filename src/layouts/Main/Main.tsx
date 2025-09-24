@@ -1,9 +1,9 @@
-import type { MainProps } from "../../interfaces/main"
+import type { MainProps } from "../../interfaces/mainTypes"
 
 
-export const Main =({children}:MainProps)=>{
+export const Main = ({ children }: MainProps) => {
 
-    return(
+    return (
         <main className="container">{children}</main>
     )
 }

@@ -1,13 +1,14 @@
 import { useGetAllGenresMoviesQuery, useGetTopRatedMoviesQuery } from "../../api/api"
-import { Movie } from "../Movie/Movie";
+import { useMoviesContext } from '../../context/moviesContext';
+import {  MovieMiniDetail } from "../Movie/MovieMiniDetail";
 
 
 
 
 export const TopRatedMovies = () => {
-    const { data,isLoading} = useGetTopRatedMoviesQuery()
-    const datas = useGetAllGenresMoviesQuery()
-    console.log(datas);
+    const {topMoviesPage} = useMoviesContext()
+    const { data, isLoading } = useGetTopRatedMoviesQuery(topMoviesPage)
+  
     
  
  
@@ -19,7 +20,7 @@ export const TopRatedMovies = () => {
     return (
         <ul>
            {data?.results.map(movie=>(
-            <li key={movie.id}><Movie {...movie} /></li>
+            <li key={movie.id}><MovieMiniDetail {...movie} /></li>
            ))} 
         </ul>
     )

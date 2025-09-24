@@ -21,7 +21,11 @@ export interface TopRatedMoviesResponse {
   total_pages: number
   total_results: number
 }
+export interface MovieGenreResponse{
+  genres:MovieGenre[]
+}
 export interface MovieGenre {
     id:number;
     name:string
 }
+export type RenderGenresMoviesType = (currentGenres:number[],allGenres:MovieGenre[])=>string[]
