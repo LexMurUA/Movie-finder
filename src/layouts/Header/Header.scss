@@ -1,2 +1,6 @@
-@use '../../styles/common'
+@use '../../styles/common';
+
+.container-header{
+    grid-area: container-header;
+}
 

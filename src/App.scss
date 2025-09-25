@@ -6,5 +6,11 @@
   margin: 0 auto;
   padding: 0;
   height: 100%;
+  display: grid;
   
+  grid-template-areas: 
+  "container-header""container-header""container-header""container-header""container-header"
+  "container-nav""container-nav""container-nav""container-nav""container-nav"
+  "container-main""container-main""container-main""container-main""container-main"
+  "container-footer""container-footer""container-footer""container-footer""container-footer";
 }

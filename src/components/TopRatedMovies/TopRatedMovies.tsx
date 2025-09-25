@@ -1,28 +1,25 @@
 import { useGetAllGenresMoviesQuery, useGetTopRatedMoviesQuery } from "../../api/api"
 import { useMoviesContext } from '../../context/moviesContext';
-import {  MovieMiniDetail } from "../Movie/MovieMiniDetail";
-
+import { Loading } from "../Loading/Loading";
+import { MovieMiniDetail } from "../Movie/MovieMiniDetail";
+import './TopRatedMovies.scss';
 
 
 
 export const TopRatedMovies = () => {
-    const {topMoviesPage} = useMoviesContext()
+    const { topMoviesPage } = useMoviesContext()
     const { data, isLoading } = useGetTopRatedMoviesQuery(topMoviesPage)
-  
-    
- 
- 
- 
-    
-    
-    if (isLoading) return <p>Loading...</p>
 
+
+    if (isLoading) return <Loading />
     return (
-        <ul>
-           {data?.results.map(movie=>(
-            <li key={movie.id}><MovieMiniDetail {...movie} /></li>
-           ))} 
-        </ul>
+        <section className="top-rated">
+            <ul>
+                {data?.results.map(movie => (
+                    <li key={movie.id}><MovieMiniDetail {...movie} /></li>
+                ))}
+            </ul>
+        </section>
     )
 }
 

@@ -1,0 +1,14 @@
+.loading{
+    width: 50px;
+    height: 50px;
+    animation: loadingAnime 1s linear infinite;
+   
+}
+@keyframes loadingAnime {
+    from{
+        rotate: 0deg;
+    }
+    to{
+        rotate:360deg;
+    }
+}

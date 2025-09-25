@@ -4,6 +4,6 @@
 export const Footer = ()=>{
 
     return(
-        <footer className="container">Footer</footer>
+        <footer className="container container-footer">Footer</footer>
     )
 }

@@ -3,4 +3,13 @@
   height: auto;
   min-width: 375px;
   border: 1px solid red;
+  h3{
+    font-size: clamp(1rem,1vw,2rem);
+  }
+  span{
+    font-size: clamp(1rem,.8vw,2rem);
+  }
+  p{
+    font-size: clamp(1rem,.8vw,2rem);
+  }
 }
