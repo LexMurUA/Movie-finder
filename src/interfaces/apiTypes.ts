@@ -1,23 +1,27 @@
-export interface MovieType {
-  adult: boolean
-  backdrop_path: string
-  genre_ids: number[]
+
+export interface MediaType {
   id: number
-  original_language: string
-  original_title: string
+  title?: string
+  name?: string
+  original_title?: string
+  original_name?: string
+  release_date?: string
+  first_air_date?: string
   overview: string
-  popularity: number
   poster_path: string
-  release_date: string
-  title: string
-  video: boolean
   vote_average: number
   vote_count: number
+  genre_ids: number[]
+  popularity: number
+  original_language: string
 }
-
+export type TopRatedQueryArgs =  {
+  page?: number
+  tvOrMovie?: string
+}
 export interface TopRatedMoviesResponse {
   page: number
-  results: MovieType[]
+  results: MediaType[]
   total_pages: number
   total_results: number
 }

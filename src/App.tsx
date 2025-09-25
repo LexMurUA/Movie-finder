@@ -12,12 +12,12 @@ function App() {
   return (
     <>
       <Header />
-      <Nav />
-      <Main>
-        <MoviesContextProvider>
+      <MoviesContextProvider>
+        <Nav />
+        <Main>
           <Outlet />
-        </MoviesContextProvider>
-      </Main>
+        </Main>
+      </MoviesContextProvider>
       <Footer />
     </>
   )
