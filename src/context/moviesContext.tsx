@@ -11,7 +11,8 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
 
   //HOOKS===
   const [topMoviesPage, setTopMoviesPage] = useState(1)
-  const [contenType,setContentType] = useState('movie')
+  const [contenType, setContentType] = useState('movie')
+  const [popularOrTopRated, setPopularOrTopRated] = useState('top_rated')
 
 
 
@@ -29,7 +30,12 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
   }
 
   return (
-    <MoviesContext.Provider value={{ topMoviesPage, setTopMoviesPage, renderGenresMovies, contenType, setContentType }}>{children}</MoviesContext.Provider>
+    <MoviesContext.Provider value={{
+      topMoviesPage, setTopMoviesPage,
+      renderGenresMovies,
+      contenType, setContentType,
+      popularOrTopRated, setPopularOrTopRated
+    }}>{children}</MoviesContext.Provider>
   )
 }
 

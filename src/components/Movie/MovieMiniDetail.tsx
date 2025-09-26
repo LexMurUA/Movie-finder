@@ -20,7 +20,32 @@ export const MovieMiniDetail = ({ id, title, name, genre_ids, original_title, or
             </div>
             <div className="moveminidetail-body">
                 <div className="moveminidetail-body-info">
-                    <p><b>Жанр:</b> {
+ 
+                    <div className='informs'>
+                        <span><b>Рейтинг TMDB:</b></span>
+                        <span><img src={star} alt="star" /> {popularity}</span>
+                       
+                    </div>
+                    <div className='informs'>
+                        <span><b>Мова оригіналу:</b></span>
+                        <span>{original_language}</span>
+                    </div>
+                    <div className='informs'>
+                        <span><b>Дата виходу:</b></span>
+                        <span>{release_date ?? first_air_date}</span>
+                    </div>
+                    <div className='informs'>
+                        <span><b>Оцінка глядачів:</b></span>
+                        <span>{vote_average}</span>
+                    </div>
+                    <div className='informs'>
+                        <span><b>Кількість голосів:</b></span>
+                        <span>{vote_count}</span>
+                    </div>
+                </div>
+                <div className="moveminidetail-body-genres">
+                    <span><b>Жанр:</b></span>
+                    {
                         genres.length === 0 ? <span>Категорія незабаром буде додана</span>
                             : (
                                 genres.map((genre, idx) => (
@@ -28,17 +53,10 @@ export const MovieMiniDetail = ({ id, title, name, genre_ids, original_title, or
                                 ))
                             )
                     }
-                    </p>
 
-                    <span><b> Рейтинг TMDB:</b><img src={star} alt="star" />{popularity}</span>
-                    <span><b>Мова оригіналу:</b> {original_language}</span>
-                    <span><b>Дата виходу:</b> {release_date ?? first_air_date}</span>
-                    <span><b>Оцінка глядачів:</b> {vote_average}</span>
-                    <span><b>Кількість голосів:</b> {vote_count}</span>
                 </div>
-
                 <article className="moveminidetail-body-article">
-                    {overview}
+                    {overview.length != 0 ? overview : <p>Опис незабаром буде додано.</p> }
                 </article>
 
             </div>

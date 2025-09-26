@@ -15,9 +15,10 @@ export interface MediaType {
   popularity: number
   original_language: string
 }
-export type TopRatedQueryArgs =  {
+export type TopRatedQueryArgs = {
   page?: number
-  tvOrMovie?: string
+  tvOrMovie?: string,
+  popularOrTopRated?: 'top_rated' | 'popular'
 }
 export interface TopRatedMoviesResponse {
   page: number
@@ -25,11 +26,11 @@ export interface TopRatedMoviesResponse {
   total_pages: number
   total_results: number
 }
-export interface MovieGenreResponse{
-  genres:MovieGenre[]
+export interface MovieGenreResponse {
+  genres: MovieGenre[]
 }
 export interface MovieGenre {
-    id:number;
-    name:string
+  id: number;
+  name: string
 }
-export type RenderGenresMoviesType = (currentGenres:number[],allGenres:MovieGenre[])=>string[]
+export type RenderGenresMoviesType = (currentGenres: number[], allGenres: MovieGenre[]) => string[]

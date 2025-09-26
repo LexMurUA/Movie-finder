@@ -1,7 +1,7 @@
 .moveminidetail {
     border: 2px solid rgb(0, 255, 247);
     border-radius: 25px;
-    max-width: 70vw;
+
     display: flex;
     align-items: center;
     padding: 20px;
@@ -28,44 +28,39 @@
         display: flex;
         flex-direction: column;
         border: 1px solid salmon;
-        gap: 20px;
-        width: 90%;
+        gap: 10px;
+        width: 50vw;
 
         &-info {
             display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            padding: 0 5px;
-            border: 1px solid blue;
-            
+            align-items: baseline;
 
-            span {
+            justify-content: flex-start;
+            gap: 10px;
+            border: 1px solid blue;
+
+            .informs {
+                display: flex;
+                flex-direction: column;
+                border-right: 2px solid black;
+                padding-right: 5px;
+
                 img {
                     width: 15px;
                     height: 15px;
                 }
 
-                border: 1px solid blue;
-                width: 8vw;
-                margin: 5px;
-
-
             }
 
-            p {
-                display: block;
-                border: 1px solid blue;
-                width: 8vw;
-                span{
-                    margin: 2px;
-                    text-wrap: wrap;
-                    font-size: .6vw;
-                    
-                }
-                
-                
-            }
 
+        }
+        &-genres {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            span{
+                margin: 0 5px;
+            }
         }
 
         &-article {
@@ -74,5 +69,6 @@
             border: 1px solid blue;
             max-width: 100%;
         }
+
     }
 }

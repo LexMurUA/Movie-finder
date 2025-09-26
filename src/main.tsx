@@ -17,6 +17,8 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<MainPage />} />
           <Route path='/moviesTopRated' element={<TopRatedMovies />} />
           <Route path='/tvTopRated' element={<TopRatedMovies />} />
+            <Route path='/moviesPopular' element={<TopRatedMovies />} />
+          <Route path='/tvPopular' element={<TopRatedMovies />} />
 
 
         </Route>

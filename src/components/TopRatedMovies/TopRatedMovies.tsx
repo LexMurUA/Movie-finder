@@ -8,8 +8,8 @@ import './TopRatedMovies.scss';
 
 
 export const TopRatedMovies = () => {
-    const { topMoviesPage, contenType } = useMoviesContext()
-    const { data, isLoading } = useGetTopRatedMoviesQuery({ page: topMoviesPage, tvOrMovie: contenType })
+    const { topMoviesPage, contenType,popularOrTopRated } = useMoviesContext()
+    const { data, isLoading } = useGetTopRatedMoviesQuery({ page: topMoviesPage, tvOrMovie: contenType, popularOrTopRated: popularOrTopRated  })
 
 
 

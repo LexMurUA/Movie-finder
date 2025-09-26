@@ -10,6 +10,9 @@ export interface MoviesContextType{
 
   contenType:string
   setContentType:React.Dispatch<React.SetStateAction<string>>
+
+  popularOrTopRated:string
+  setPopularOrTopRated:React.Dispatch<React.SetStateAction<string>>
   
   renderGenresMovies:RenderGenresMoviesType
   

@@ -17,6 +17,11 @@
         border: 1px solid yellow;
         
         &-bar {
+            ul{
+                list-style: none;
+                padding: 0;
+            }
+            width: 15vw;
             display: block;
             opacity: .5;
             visibility: hidden;

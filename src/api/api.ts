@@ -10,13 +10,14 @@ export const TMDB = createApi({
   }),
   endpoints:(builder)=>({
     getTopRatedMovies: builder.query<TopRatedMoviesResponse,TopRatedQueryArgs>({
-      query:({page=1,tvOrMovie='movie'})=>`/${tvOrMovie}/top_rated?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}`
+      query:({page=1,tvOrMovie='movie',popularOrTopRated='top_rated'})=>`/${tvOrMovie}/${popularOrTopRated}?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}`
     }),
     getAllGenresMovies:builder.query<MovieGenreResponse,void>({
       query:()=>`/genre/movie/list?api_key=${TMDB_API_KEY}&language=uk-UA`
-    })
+    }),
+
   })
 })
 
 
-export const {useGetTopRatedMoviesQuery,useGetAllGenresMoviesQuery} = TMDB
+export const {useGetTopRatedMoviesQuery,useGetAllGenresMoviesQuery,useGetPopularMoviesQuery} = TMDB
