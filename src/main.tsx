@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainPage } from './Pages/MainPage/MainPage.tsx'
 import { Provider } from 'react-redux'
 import { store } from './app/strore.ts'
+import { TopRatedMovies } from './components/TopRatedMovies/TopRatedMovies.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,6 +15,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route index element={<MainPage />} />
+          <Route path='/moviesTopRated' element={<TopRatedMovies />} />
+          <Route path='/tvTopRated' element={<TopRatedMovies />} />
 
 
         </Route>

@@ -2,7 +2,7 @@ import { useGetAllGenresMoviesQuery } from "../../api/api";
 import { useMoviesContext } from '../../context/moviesContext';
 import type { MediaType } from "../../interfaces/apiTypes";
 import './MovieMiniDetail.scss'
-
+import star from '../../assets/images/star.svg'
 export const MovieMiniDetail = ({ id, title, name, genre_ids, original_title, original_name, poster_path, popularity,
     original_language, release_date, first_air_date, overview, vote_average, vote_count
 }: MediaType) => {
@@ -20,7 +20,7 @@ export const MovieMiniDetail = ({ id, title, name, genre_ids, original_title, or
             </div>
             <div className="moveminidetail-body">
                 <div className="moveminidetail-body-info">
-                    <p>Жанр: {
+                    <p><b>Жанр:</b> {
                         genres.length === 0 ? <span>Категорія незабаром буде додана</span>
                             : (
                                 genres.map((genre, idx) => (
@@ -29,11 +29,12 @@ export const MovieMiniDetail = ({ id, title, name, genre_ids, original_title, or
                             )
                     }
                     </p>
-                    <span>Рейтинг TMDB: {popularity}</span>
-                    <span>Мова оригіналу: {original_language}</span>
-                    <span>Дата виходу: {release_date ?? first_air_date}</span>
-                    <span>Оцінка глядачів: {vote_average}</span>
-                    <span>Кількість голосів: {vote_count}</span>
+
+                    <span><b> Рейтинг TMDB:</b><img src={star} alt="star" />{popularity}</span>
+                    <span><b>Мова оригіналу:</b> {original_language}</span>
+                    <span><b>Дата виходу:</b> {release_date ?? first_air_date}</span>
+                    <span><b>Оцінка глядачів:</b> {vote_average}</span>
+                    <span><b>Кількість голосів:</b> {vote_count}</span>
                 </div>
 
                 <article className="moveminidetail-body-article">

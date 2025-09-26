@@ -1,5 +1,43 @@
 @use '../../styles/common';
 
-.container-nav{
+.container-nav {
     grid-area: container-nav;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 10vh;
+    a{
+        text-decoration: none;
+    }
+    &-movies,
+    &-tv {
+        position: relative;
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid yellow;
+        
+        &-bar {
+            display: block;
+            opacity: .5;
+            visibility: hidden;
+            position: absolute;
+            top: 95%;
+            left: 0;
+            background: #f4f4f4;
+            color: white;
+            padding: 10px;
+            border-radius: 25px;
+            z-index: 10;
+            font-size: .8vw;
+        }
+
+        &:hover &-bar {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            
+        }
+
+    }
+
 }
