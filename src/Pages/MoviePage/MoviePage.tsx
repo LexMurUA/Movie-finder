@@ -9,38 +9,34 @@ export const MoviePage = () => {
 
 
   const { id } = useParams()
-  const { data, isLoading } = useGetMovieOrTvDetailQuery({ id, tvOrMovie: 'movie' })
+  
+  
+  const { data, isLoading } = useGetMovieOrTvDetailQuery({ id:Number(id), tvOrMovie: 'movie' })
   const { budget, genres, title, original_language, status, tagline, original_title,
     vote_average, vote_count, runtime, overview, popularity,
     production_countries, production_companies, release_date, backdrop_path, poster_path
   } = data ?? {}
 
 
-
-
-
-
-  if (isLoading) return <Loading />
-
-
+  isLoading && <Loading />
 
   return (
     <div className='container container-movie-page'>
       <div className='container-movie-page-header'>
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />
         <h3>{title}/{original_title}</h3>
       </div>
       <div className='container-movie-page-info'>
         <div>
           <span><b>Жанр: </b></span>
-          {genres.map((category, idx) => (
+          {genres?.map((category, idx) => (
             <span key={idx}>{category.name}</span>
           ))}
         </div>
         <div>
           <span><b>Країна/ни виробник: </b></span>
-          {production_countries.map(country => (
-            <span>{country.name}</span>
+          {production_countries?.map((country,idx) => (
+            <span key={idx}>{country.name}</span>
           ))}
         </div>
 
@@ -48,6 +44,7 @@ export const MoviePage = () => {
           <span><b>Дата релізу: </b></span>
           <span>{release_date}</span>
         </div>
+
         <div>
           <span><b>Бюджет: </b></span>
           <span>{budget}</span>
@@ -88,8 +85,8 @@ export const MoviePage = () => {
           <span><b>Кількість голосів:</b></span>
           <span>{vote_count}</span>Кількість голосів:28927
           Студія/ії виробники:
-
         </div>
+        
         <div>
           <span><b>Студія/ії виробники: </b></span>
 

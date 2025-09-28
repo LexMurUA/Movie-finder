@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { store } from './app/strore.ts'
 import { TopRatedMovies } from './components/TopRatedMovies/TopRatedMovies.tsx'
 import { MoviePage } from './Pages/MoviePage/MoviePage.tsx'
+import { TvPage } from './Pages/TvPage/TvPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
 
             <Route path='/tvTopRated' element={<TopRatedMovies />} />
             <Route path='/tvPopular' element={<TopRatedMovies />} />
-            <Route path='/tv/id' element={<TopRatedMovies />} />
+            <Route path='/tv/:id' element={<TvPage />} />
 
 
           </Route>
