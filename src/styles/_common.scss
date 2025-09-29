@@ -1,8 +1,31 @@
+$main_color : white;
+$main_text_color : black;
+$second_text_color:white;
+$border_color_main:rgba(0, 0, 0, 0.347);
+$main_color_theme:rgba(99, 58, 169, 0.396);
+
+@mixin mobileClick() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      transform: scale(1.008);
+      opacity: 0.5;
+    }
+  }
+}
 .container {
   width: 100%;
   height: auto;
   min-width: 375px;
   border: 1px solid red;
+  button{
+    @include mobileClick()
+  }
   h3{
     padding: 0;
     margin: 0;
@@ -18,4 +41,28 @@
     font-size: clamp(1rem,.8vw,2rem);
   }
 }
+
+//MOBILE
+
+@mixin breakPoint($point) {
+  @if $point ==phone {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point ==tablet {
+    @media (max-width: 834px) {
+      @content;
+    }
+  } @else if $point ==laptop {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point ==desktop {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  }
+}
+
+
 

@@ -1,12 +1,21 @@
-.moveminidetail {
-    border: 2px solid rgb(0, 255, 247);
-    border-radius: 25px;
+@use '../../styles/common' as *;
 
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.moveminidetail {
+    @include mobileClick();
+    border: 2px solid rgba(0, 0, 0, 0.347);
+    border-radius: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 20px 25px;
     gap: 15px;
-    background-color: rgba(0, 0, 0, 0.281);
+    background-color: rgba(99, 58, 169, 0.396);
 
     &-header {
         display: flex;
@@ -27,23 +36,22 @@
     &-body {
         display: flex;
         flex-direction: column;
-        border: 1px solid salmon;
-        gap: 10px;
+        gap: 15px;
         width: 50vw;
-
+        
         &-info {
             display: flex;
             align-items: baseline;
-
-            justify-content: flex-start;
+            justify-content: space-evenly;
             gap: 10px;
-            border: 1px solid blue;
 
             .informs {
                 display: flex;
                 flex-direction: column;
-                border-right: 2px solid black;
+                border-bottom: 2px solid $border_color_main;
+                border-radius: 25px;
                 padding-right: 5px;
+                padding: 0 5px;
 
                 img {
                     width: 15px;
@@ -54,11 +62,13 @@
 
 
         }
+
         &-genres {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            span{
+
+            span {
                 margin: 0 5px;
             }
         }
@@ -66,7 +76,6 @@
         &-article {
             text-align: left;
             padding: 5px;
-            border: 1px solid blue;
             max-width: 100%;
         }
 
