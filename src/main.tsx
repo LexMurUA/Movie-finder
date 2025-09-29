@@ -1,12 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.scss'
-import App from './App.tsx'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { MainPage } from './Pages/MainPage/MainPage.tsx'
 import { Provider } from 'react-redux'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import App from './App.tsx'
 import { store } from './app/strore.ts'
+import { Person } from './components/Person/Person.tsx'
+import { PopularPersons } from './components/PopularPersons/PopularPersons.tsx'
 import { TopRatedMovies } from './components/TopRatedMovies/TopRatedMovies.tsx'
+import './index.scss'
+import { MainPage } from './Pages/MainPage/MainPage.tsx'
 import { MoviePage } from './Pages/MoviePage/MoviePage.tsx'
 import { TvPage } from './Pages/TvPage/TvPage.tsx'
 
@@ -24,6 +26,9 @@ createRoot(document.getElementById('root')!).render(
             <Route path='/tvTopRated' element={<TopRatedMovies />} />
             <Route path='/tvPopular' element={<TopRatedMovies />} />
             <Route path='/tv/:id' element={<TvPage />} />
+
+            <Route path='/popularPersons' element={<PopularPersons />} />
+            <Route path='/popularPersons/:id' element={<Person />} />
 
 
           </Route>

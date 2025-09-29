@@ -1,34 +1,25 @@
 import { Link } from 'react-router-dom';
 import { useMoviesContext } from '../../context/moviesContext';
 import './Nav.scss';
+import { useEffect } from 'react';
 
 
 
 export const Nav = () => {
-    const { setContentType, setPopularOrTopRated } = useMoviesContext()
+    const { setContentType, setPopularOrTopRated,contenType, popularOrTopRated,location } = useMoviesContext()
+    const { setTopMoviesPage } = useMoviesContext()
 
-    // const moviesTopRated = () => {
-    //     setContentType('movie')
-    //     setPopularOrTopRated('top_rated')
-    // }
-    // const tvTopRated = () => {
-    //     setContentType('tv')
-    //     setPopularOrTopRated('top_rated')
-    // }
-    // const moviesPopular = () => {
-    //     setContentType('movie')
-    //     setPopularOrTopRated('popular')
-    // }
-    // const tvPopular = () => {
-    //     setContentType('tv')
-    //     setPopularOrTopRated('popular')
-    // }
 
-    const changeCategory = (tvOrMovie: 'tv' | 'movie', topRatedOrPopular: 'top_rated' | 'popular')=>{
+    const changeCategory = (tvOrMovie: 'tv' | 'movie'| 'person', topRatedOrPopular: 'top_rated' | 'popular') => {
         setContentType(tvOrMovie);
         setPopularOrTopRated(topRatedOrPopular)
-
     }
+
+    
+    useEffect(() => {
+        
+        setTopMoviesPage(1)
+    }, [location.pathname])
 
     return (
 
@@ -57,7 +48,19 @@ export const Nav = () => {
                 </div>
             </div>
 
-            <div>Найпопулярніші люди</div>
+            <div className='container-nav-people'>
+                Найпопулярніші люди
+                <div className='container-nav-people-bar'>
+                    <ul>
+                        <li><Link to='/popularPersons'>Популярні персони</Link></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
         </nav>
     )
 }

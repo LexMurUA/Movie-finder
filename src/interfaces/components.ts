@@ -1,7 +1,7 @@
 import type React from 'react';
 
 export interface PaginationProps {
-  totalPages: number
+  totalPages: number,
 }
 export interface PaginationButtonProps {
   page:number

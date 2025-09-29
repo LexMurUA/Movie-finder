@@ -110,17 +110,15 @@ export interface GetMovieOrTvDetail {
   }[];
   status: string;
   tagline: string;
-  type?: string; 
+  type?: string;
   vote_average: number;
   vote_count: number;
 }
 
-
-
 export type TopRatedQueryArgs = {
   page?: number
   tvOrMovie?: string,
-  popularOrTopRated?: 'top_rated' | 'popular'
+  popularOrTopRated?: string,
 }
 export interface TopRatedMoviesResponse {
   page: number
@@ -136,3 +134,43 @@ export interface MovieGenre {
   name: string
 }
 export type RenderGenresMoviesType = (currentGenres: number[], allGenres: MovieGenre[]) => string[]
+
+export interface getPopularPersonsArgs{
+  page?:number,
+}
+
+export interface getPopularPersonsTypes {
+  page: number
+  results: [getPopularPersonsRes] 
+  total_pages: number
+  total_results: number
+}
+export interface getPopularPersonsRes {
+  adult: boolean,
+  gender: number,
+  id: number,
+  known_for: [Person],
+  known_for_department: string,
+  name: string,
+  original_name: string,
+  popularity: number,
+  profile_path: string
+}
+
+export interface Person {
+  adult: boolean,
+  backdrop_path: string,
+  genre_ids: [number],
+  id: number,
+  media_type: string,       
+  original_language: string,
+  original_title: string,
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  release_date: string,
+  title: string
+  video: boolean,               
+  vote_average: number,
+  vote_count: number
+}
