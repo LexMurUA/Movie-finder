@@ -1,0 +1,18 @@
+@use '../../styles/common' as *;
+
+.project{
+    
+    display: flex;
+    height: 40%;
+    padding: 10px;
+    &-header{
+        h3{
+            font-size: 1vw;
+        }
+        img{
+            width: 5vw;
+        }
+        width: 10vw;
+    }
+   
+}

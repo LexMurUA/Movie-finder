@@ -7,7 +7,7 @@ $main_color_theme:rgba(99, 58, 169, 0.396);
 @mixin mobileClick() {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
   }
 
@@ -29,7 +29,12 @@ $main_color_theme:rgba(99, 58, 169, 0.396);
   h3{
     padding: 0;
     margin: 0;
-    font-size: clamp(1rem,1vw,2rem);
+    font-size: clamp(.8rem,1vw,2rem);
+  }
+  h5{
+    padding: 0;
+    margin: 0;
+    font-size: clamp(.5rem,.7rem,1rem);
   }
   span{
     font-size: clamp(.8rem,.8vw,2rem);
@@ -40,6 +45,7 @@ $main_color_theme:rgba(99, 58, 169, 0.396);
   article{
     font-size: clamp(1rem,.8vw,2rem);
   }
+  
 }
 
 //MOBILE

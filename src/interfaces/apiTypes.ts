@@ -149,7 +149,7 @@ export interface getPopularPersonsRes {
   adult: boolean,
   gender: number,
   id: number,
-  known_for: [Person],
+  known_for: [PersonProjectType],
   known_for_department: string,
   name: string,
   original_name: string,
@@ -157,7 +157,7 @@ export interface getPopularPersonsRes {
   profile_path: string
 }
 
-export interface Person {
+export interface PersonProjectType {
   adult: boolean,
   backdrop_path: string,
   genre_ids: [number],
@@ -170,7 +170,9 @@ export interface Person {
   poster_path: string,
   release_date: string,
   title: string
-  video: boolean,               
+  video?: boolean,               
   vote_average: number,
   vote_count: number
 }
+
+
