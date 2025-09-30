@@ -134,14 +134,18 @@ export interface MovieGenre {
   name: string
 }
 export type RenderGenresMoviesType = (currentGenres: number[], allGenres: MovieGenre[]) => string[]
+export type genderTranslator = (id: number) => "Не вказано" | "Жінка" | "Чоловік" | "Небінарний" | "Невідомо" | undefined
 
 export interface getPopularPersonsArgs{
   page?:number,
 }
 
+
+//Person enpoints===
+
 export interface getPopularPersonsTypes {
   page: number
-  results: [getPopularPersonsRes] 
+  results: getPopularPersonsRes[] 
   total_pages: number
   total_results: number
 }
@@ -149,7 +153,7 @@ export interface getPopularPersonsRes {
   adult: boolean,
   gender: number,
   id: number,
-  known_for: [PersonProjectType],
+  known_for: PersonProjectType[],
   known_for_department: string,
   name: string,
   original_name: string,
@@ -160,7 +164,7 @@ export interface getPopularPersonsRes {
 export interface PersonProjectType {
   adult: boolean,
   backdrop_path: string,
-  genre_ids: [number],
+  genre_ids: number[],
   id: number,
   media_type: string,       
   original_language: string,
@@ -175,4 +179,54 @@ export interface PersonProjectType {
   vote_count: number
 }
 
+export interface GetPersonDetailArgs {
+  id:number
+}
+
+export interface GetPersonDetailResponse {
+  adult: boolean,
+  also_known_as: string[],
+  biography: string,
+  birthday: string,
+  deathday: null,
+  gender: number,
+  homepage: null,
+  id: number,
+  imdb_id: string,
+  known_for_department: string,
+  name: string,
+  place_of_birth:string,
+  popularity: number,
+  profile_path: string
+}
+
+export interface CastTypes {
+  cast: CreditItem[],
+  crew: CreditItem[],
+  id:number
+}
+
+export interface CreditItem {
+  adult: boolean;
+  backdrop_path: string | null;
+  credit_id: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+
+  character?: string;
+  order?: number;
+
+  department?: string;
+  job?: string;
+}
 

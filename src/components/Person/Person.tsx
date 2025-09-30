@@ -8,7 +8,7 @@ export const Person = ({ id, gender, known_for, known_for_department, name, orig
 
 
   return (
-    <Link to={`/popularPersons/${id}`}>
+    <Link to={`/person/${id}`}>
       <div className='person'>
         <div className='person-header'>
           <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />

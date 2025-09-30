@@ -45,6 +45,9 @@ $main_color_theme:rgba(99, 58, 169, 0.396);
   article{
     font-size: clamp(1rem,.8vw,2rem);
   }
+  article{
+    font-size: clamp(.8rem, .8vw, 2rem);
+  }
   
 }
 

@@ -1,0 +1,57 @@
+@use '../../styles/common' as *;
+
+.identity {
+  padding: 15px;
+  display: flex;
+
+  &-header {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 15vw;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgb(184, 0, 0);
+    padding: 15px;
+  }
+
+  &-biography {
+    padding: 15px;
+    text-align: start;
+    border: 1px solid salmon;
+
+    &-projects {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 10px;
+      border: 1px solid rgb(184, 0, 0);
+      padding: 5px;
+
+      &-icon {
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: 8vw;
+        }
+
+        span {
+          width: 8vw;
+        }
+
+      }
+    }
+
+  }
+}

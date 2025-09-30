@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { TMDB_API_KEY, TMDB_URL_MAIN } from '../constants/api';
-import type { GetMovieOrTvDetail, getPopularPersonsArgs, getPopularPersonsTypes, MovieGenreResponse, OneMovieOrTvPageArgs, TopRatedMoviesResponse, TopRatedQueryArgs } from '../interfaces/apiTypes';
+import { GetPersonDetailResponse, type CastTypes, type GetMovieOrTvDetail, type GetPersonDetailArgs, type getPopularPersonsArgs, type getPopularPersonsTypes, type MovieGenreResponse, type OneMovieOrTvPageArgs, type TopRatedMoviesResponse, type TopRatedQueryArgs } from '../interfaces/apiTypes';
 
 
 export const TMDB = createApi({
@@ -20,9 +20,17 @@ export const TMDB = createApi({
     }),
     getPopularPersons: builder.query<getPopularPersonsTypes, getPopularPersonsArgs>({
       query: ({ page = 1 }) => `person/popular?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}`
+    }),
+    getPersonDetail:builder.query<GetPersonDetailResponse, GetPersonDetailArgs>({
+      query: ({id}) => `/person/${id}?api_key=${TMDB_API_KEY}&language=uk-UA`
+    }),
+    getPersonMovies:builder.query<CastTypes, GetPersonDetailArgs>({
+      query: ({ id }) => `/person/${id}/movie_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
     })
   })
 })
 
 
-export const { useGetTopRatedMoviesQuery, useGetAllGenresMoviesQuery, useGetMovieOrTvDetailQuery, useGetPopularPersonsQuery } = TMDB
+export const { useGetTopRatedMoviesQuery, useGetAllGenresMoviesQuery, 
+  useGetMovieOrTvDetailQuery, useGetPopularPersonsQuery,
+  useGetPersonDetailQuery,useGetPersonMoviesQuery } = TMDB

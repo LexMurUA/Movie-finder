@@ -11,6 +11,7 @@ import './index.scss'
 import { MainPage } from './Pages/MainPage/MainPage.tsx'
 import { MoviePage } from './Pages/MoviePage/MoviePage.tsx'
 import { TvPage } from './Pages/TvPage/TvPage.tsx'
+import { PersonPage } from './Pages/PersonPage/PersonPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -28,7 +29,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path='/tv/:id' element={<TvPage />} />
 
             <Route path='/popularPersons' element={<PopularPersons />} />
-            <Route path='/popularPersons/:id' element={<Person />} />
+            <Route path='/person/:id' element={<PersonPage />} />
 
 
           </Route>
