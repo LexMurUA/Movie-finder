@@ -19,159 +19,141 @@ export const TvPage = () => {
 
   return (
     <div className='container container-tv-page'>
-      <div className='container-tv-page-header'>
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_name} />
-        <h3>{name}/{original_name}</h3>
+      <div className='pantom'>
+
+        <div className='container-tv-page-header'>
+          <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_name} />
+          <h3>{name}/{original_name}</h3>
+        </div>
       </div>
 
-      <div className='container-movie-page-info'>
+
+      <div className='container-tv-page-body'>
+
+        <div className='container-tv-page-body-info'>
 
 
-        <div>
-          <span><b>Останній епізод: </b></span>
-          <span>Дата: {last_episode_to_air?.air_date}</span>
-          <span>Номер серії: {last_episode_to_air?.episode_number}</span>
-          <span>Назва: {last_episode_to_air?.name}</span>
-          <span>Тривалысть: {last_episode_to_air?.runtime}</span>
-          <span>Сезон: {last_episode_to_air?.season_number}</span>
-          <img src={`https://image.tmdb.org/t/p/w500${last_episode_to_air?.still_path}`} alt={last_episode_to_air?.name} />
-          <span></span>
+          <div className='mini'>
+            <span><b>Останній епізод: </b></span>
+            <span>Дата: {last_episode_to_air?.air_date}</span>
+            <span>Назва: {last_episode_to_air?.name}</span>
+            <span>Сезон: {last_episode_to_air?.season_number}</span>
+            <img src={`https://image.tmdb.org/t/p/w500${last_episode_to_air?.still_path}`} alt={last_episode_to_air?.name} />
+            <span></span>
+          </div>
+
+          <div className='channels'>
+            {networks?.map((studio, idx) => (
+              <div className='channels-view' key={idx}>
+                <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt={studio.name} />
+                <span>{studio.name}</span>
+              </div>
+            ))}
+          </div>
+
+
+          <div className='mini'>
+            <span><b>Жанр: </b></span>
+            {genres?.map((category, idx) => (
+              <span key={idx}>{category.name}</span>
+            ))}
+          </div>
+
+          <div className='mini'>
+            <span><b>Країна/ни виробник: </b></span>
+            {production_countries?.map((country, idx) => (
+              <span key={idx}>{country.name}</span>
+            ))}
+          </div>
+
+          <div className='mini'>
+            <span><b>Автор/и: </b></span>
+            {created_by?.map((creator, idx) => (
+              <span key={idx}>{creator.name}/{original_name}</span>
+            ))}
+          </div>
+
+          <div className='mini'>
+            <span><b>Дата релізу: </b></span>
+            <span>{first_air_date}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Наступний епізод: </b></span>
+            <span>{next_episode_to_air}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Кількість серій: </b></span>
+            <span>{number_of_episodes}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Офіційна сторінка: </b></span>
+            <span><a href={homepage} target="_blank" rel="noopener noreferrer">Посилання...</a></span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Мова оригіналу: </b></span>
+            <span>{original_language}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Гасло: </b></span>
+            <span>{tagline}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Кількість сезонів: </b></span>
+            <span>{number_of_seasons}</span>
+          </div>
+
+          <div className='seasons'>
+
+            {seasons?.map((season, idx) => (
+              <div className='seasons-view' key={idx}>
+
+                {season.poster_path && <img src={`https://image.tmdb.org/t/p/w500${season.poster_path}`} alt={season.name} />}
+                <span>{season.name}</span>
+
+              </div>
+            ))}
+          </div>
+
+          <div className='mini'>
+            <span><b>Рейтинг TMDB:</b></span>
+            <span><img src={star} alt="star" /> {popularity}</span>
+
+          </div>
+
+          <div className='mini'>
+            <span><b>Оцінка глядачів:</b></span>
+            <span>{vote_average}</span>
+          </div>
+
+          <div className='mini'>
+            <span><b>Кількість голосів:</b></span>
+            <span>{vote_count}</span>Кількість голосів:28927
+          </div>
+
+          <div className='studios'>
+            {production_companies?.map((studio, idx) => (
+              <div className='studios-view' key={idx}>
+                <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt="Logo" />
+                <span>{studio.name}</span>
+
+              </div>
+            ))}
+          </div>
+
+
         </div>
 
-        <div>
-          <span><b>Покази на каналах: </b></span>
-          {networks?.map((studio, idx) => (
-            <div key={idx}>
-              <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt={studio.name} />
-              <span>{studio.name}</span>
-            </div>
-          ))}
-        </div>
-
-
-        <div>
-          <span><b>Жанр: </b></span>
-          {genres?.map((category, idx) => (
-            <span key={idx}>{category.name}</span>
-          ))}
-        </div>
-
-        <div>
-          <span><b>Країна/ни виробник: </b></span>
-          {production_countries?.map((country, idx) => (
-            <span key={idx}>{country.name}</span>
-          ))}
-        </div>
-
-        <div>
-          <span><b>Виробництво: </b></span>
-          <span>{in_production === false ? <p>Ні</p> : <p>Так</p>}</span>
-        </div>
-
-        <div>
-          <span><b>Автор/и: </b></span>
-          {created_by?.map((creator, idx) => (
-            <span key={idx}>{creator.name}/{original_name}</span>
-          ))}
-        </div>
-
-        <div>
-          <span><b>Дата релізу: </b></span>
-          <span>{first_air_date}</span>
-        </div>
-
-        <div>
-          <span><b>Дата останнього релізу: </b></span>
-          <span>{last_air_date}</span>
-        </div>
-
-        <div>
-          <span><b>Наступний епізод: </b></span>
-          <span>{next_episode_to_air}</span>
-        </div>
-
-        <div>
-          <span><b>Кількість серій: </b></span>
-          <span>{number_of_episodes}</span>
-        </div>
-
-        <div>
-          <span><b>Офіційна сторінка: </b></span>
-          <span><a href={homepage} target="_blank" rel="noopener noreferrer">Посилання...</a></span>
-        </div>
-
-        <div>
-          <span><b>Мова оригіналу: </b></span>
-          <span>{original_language}</span>
-        </div>
-
-        <div>
-          <span><b>Cтатус: </b></span>
-          <span>{status}</span>
-        </div>
-
-        <div>
-          <span><b>Гасло: </b></span>
-          <span>{tagline}</span>
-        </div>
-
-        <div>
-          <span><b>Кількість сезонів: </b></span>
-          <span>{number_of_seasons}</span>
-        </div>
-
-        <div>
-          <span><b>Сезони: </b></span>
-          {seasons?.map((season, idx) => (
-            <div key={idx}>
-              <span>Назва: {season.name}</span>
-              <span>Дата виходу: {season.air_date}</span>
-              {season.poster_path && <img src={`https://image.tmdb.org/t/p/w500${season.poster_path}`} alt={season.name} />}
-              <span>Кількість серій: {season.episode_count}</span>
-            </div>
-          ))}
-        </div>
-
-
-
-
-        <div>
-          <span><b>Рейтинг TMDB:</b></span>
-          <span><img src={star} alt="star" /> {popularity}</span>
-
-        </div>
-
-        <div>
-          <span><b>Оцінка глядачів:</b></span>
-          <span>{vote_average}</span>
-        </div>
-
-        <div>
-          <span><b>Кількість голосів:</b></span>
-          <span>{vote_count}</span>Кількість голосів:28927
-          Студія/ії виробники:
-        </div>
-
-        <div>
-          <span><b>Студія/ії виробники: </b></span>
-
-          {production_companies?.map((studio, idx) => (
-            <div key={idx}>
-              <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt="Logo" />
-              <span>{studio.name}</span>
-
-            </div>
-          ))}
-        </div>
-
-
+        <article className='container-tv-page-body-about'>
+          <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
+          <p>{overview}</p>
+        </article>
       </div>
-
-      <article className='container-tv-page-about'>
-        <p>{overview}</p>
-        <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
-      </article>
-
 
 
     </div>
