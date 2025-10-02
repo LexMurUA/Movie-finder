@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { genderTranslator, RenderGenresMoviesType } from './apiTypes';
+import type { genderTranslator, isShowControlType, RenderGenresMoviesType } from './apiTypes';
 import type { Location } from 'react-router-dom';
 
 
@@ -15,7 +15,9 @@ export interface MoviesContextType{
   popularOrTopRated:string
   setPopularOrTopRated:React.Dispatch<React.SetStateAction<string>>
 
+ 
   location:Location;
+
 
   genderTranslator:genderTranslator
   

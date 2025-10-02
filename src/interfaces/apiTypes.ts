@@ -133,8 +133,13 @@ export interface MovieGenre {
   id: number;
   name: string
 }
+
+
+//FUNKTIONS===
 export type RenderGenresMoviesType = (currentGenres: number[], allGenres: MovieGenre[]) => string[]
 export type genderTranslator = (id: number) => "Не вказано" | "Жінка" | "Чоловік" | "Небінарний" | "Невідомо" | undefined
+export type isShowControlType = (value:boolean,changer: React.Dispatch<React.SetStateAction<boolean>>) => void
+//FUNKTIONS===
 
 export interface getPopularPersonsArgs{
   page?:number,
@@ -229,4 +234,59 @@ export interface CreditItem {
   department?: string;
   job?: string;
 }
+
+
+export interface GetTvDetailArgs {
+  id: number;
+}
+
+export interface GetTvDetailResponse {
+  adult: boolean;
+  backdrop_path: string | null;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  name: string;
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface TvCredits {
+  cast: TvCreditTypes[];
+  crew: TvCreditTypes[];
+  id: number;
+}
+
+export interface TvCreditTypes {
+  adult: boolean;
+  backdrop_path: string | null;
+  credit_id: string;
+  episode_count:number,
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  first_air_date: string;
+  first_credit_air_date: string;
+  origin_country:string[]
+
+  name: string;
+  vote_average: number;
+  vote_count: number;
+
+  character?: string;
+  order?: number;
+
+  department?: string;
+  job?: string;
+}
+
 

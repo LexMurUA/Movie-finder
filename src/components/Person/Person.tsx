@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import type { getPopularPersonsRes } from '../../interfaces/apiTypes';
 import { PersonProject } from '../PersonProj/PersonProject';
 import './Person.scss';
+import type { useState } from 'react';
 
 
 export const Person = ({ id, gender, known_for, known_for_department, name, original_name, popularity, profile_path }: getPopularPersonsRes) => {
-
 
   return (
     <Link to={`/person/${id}`}>

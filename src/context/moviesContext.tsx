@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import type { genderTranslator, RenderGenresMoviesType } from '../interfaces/apiTypes';
+import type { genderTranslator, isShowControlType, RenderGenresMoviesType } from '../interfaces/apiTypes';
 import type { MoviesContextType } from '../interfaces/contextTypes';
 import type { MainProps } from '../interfaces/mainTypes';
 import { useLocation } from 'react-router-dom';
@@ -49,13 +49,16 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
     }
   }
 
+
+
   return (
     <MoviesContext.Provider value={{
       topMoviesPage, setTopMoviesPage,
       renderGenresMovies,
       contenType, setContentType,
       popularOrTopRated, setPopularOrTopRated,
-      location, genderTranslator
+      location, genderTranslator,
+      
     }}>{children}</MoviesContext.Provider>
   )
 }

@@ -1,16 +1,24 @@
 @use '../../styles/common' as *;
 
 .identity {
+  margin: 20px 0;
   padding: 15px;
   display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  border: 2px solid $border_color_main;
+  background-color: $main_color_theme;
 
   &-header {
+    position: sticky;
+    top: 0;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
+    border: 1px solid rgb(0, 16, 243);
+    height: auto;
     img {
       width: 15vw;
     }
@@ -22,14 +30,24 @@
     gap: 10px;
     border: 1px solid rgb(184, 0, 0);
     padding: 15px;
+    max-width: 10vw;
   }
 
   &-biography {
     padding: 15px;
     text-align: start;
     border: 1px solid salmon;
-
+    max-width: 65vw;
+    button{
+      margin-top: 15px
+    };
+    article{
+      display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    }
     &-projects {
+      width: 60vw;
       margin-top: 15px;
       display: flex;
       flex-wrap: wrap;
@@ -37,8 +55,39 @@
       gap: 10px;
       border: 1px solid rgb(184, 0, 0);
       padding: 5px;
-
+      a{
+        font-style: none;
+      }
       &-icon {
+        @include mobileClick();
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: 8vw;
+        }
+
+        span {
+          width: 8vw;
+        }
+
+      }
+    }
+    &-tvs {
+      width: 60vw;
+      border: 3px solid blue;
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 10px;
+      border: 1px solid rgb(184, 0, 0);
+      padding: 5px;
+      a{
+        font-style: none;
+      }
+      &-icon {
+        @include mobileClick();
         display: flex;
         flex-direction: column;
 
