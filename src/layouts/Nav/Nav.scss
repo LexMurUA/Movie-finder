@@ -29,6 +29,7 @@
         font-weight: bold;
         
         &-bar {
+            z-index: 9999;
             ul{
                 display: flex;
                 justify-content: center;
@@ -46,7 +47,7 @@
             opacity: .5;
             visibility: hidden;
             position: absolute;
-            top: 95%;
+            top: 100%;
             left: 0;
             background-color: rgba(1, 1, 1, 0.315);
             color: white;
@@ -72,7 +73,6 @@
 
     }
     &-movies:hover,&-tv:hover,&-people:hover{
-        @include mobileClick();
         border: 2px solid yellow;
     }
 
