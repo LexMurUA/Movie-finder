@@ -8,16 +8,15 @@
   flex-wrap: wrap;
   border: 2px solid $border_color_main;
   background-color: $main_color_theme;
+  
 
   &-header {
     position: sticky;
     top: 0;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    border: 1px solid rgb(0, 16, 243);
     height: auto;
     img {
       width: 15vw;
@@ -25,10 +24,10 @@
   }
 
   &-info {
+   
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid rgb(184, 0, 0);
     padding: 15px;
     max-width: 10vw;
   }
@@ -36,32 +35,59 @@
   &-biography {
     padding: 15px;
     text-align: start;
-    border: 1px solid salmon;
     max-width: 65vw;
-    button{
-      margin-top: 15px
-    };
+    border-left: 2px dotted $border_color_main;
+    display: flex;
+    flex-direction: column;
+    &-pannel{
+      width: 65vw;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      button{
+        padding: 10px;
+        background-color: transparent;
+        border-radius: 25px;
+        border: 1px solid $border_color_main;
+       margin: 0 10px;
+      }
+      button:hover{
+        background-color: rgba(1, 1, 1, 0.315);
+        color: white;
+        font-weight: bold;
+       
+      }
+
+    }
     article{
       display: flex;
     flex-direction: column;
     max-height: 100%;
+    gap: 5px;
     }
-    &-projects {
+    &-projects,&-tvs {
+      a{
+        font-style: none;
+      }
+      background-color: rgba(0, 0, 0, 0.327);
+      border-radius: 25px;
+      border: 1px solid $border_color_main;
       width: 60vw;
       margin-top: 15px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
       gap: 10px;
-      border: 1px solid rgb(184, 0, 0);
-      padding: 5px;
-      a{
-        font-style: none;
-      }
+      padding: 10px;
       &-icon {
         @include mobileClick();
         display: flex;
         flex-direction: column;
+        gap: 5px;
+        span{
+          text-align: center;
+        }
 
         img {
           width: 8vw;
@@ -72,35 +98,7 @@
         }
 
       }
+      
     }
-    &-tvs {
-      width: 60vw;
-      border: 3px solid blue;
-      margin-top: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      gap: 10px;
-      border: 1px solid rgb(184, 0, 0);
-      padding: 5px;
-      a{
-        font-style: none;
-      }
-      &-icon {
-        @include mobileClick();
-        display: flex;
-        flex-direction: column;
-
-        img {
-          width: 8vw;
-        }
-
-        span {
-          width: 8vw;
-        }
-
-      }
-    }
-
   }
 }

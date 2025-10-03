@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import type { genderTranslator, isShowControlType, RenderGenresMoviesType } from '../interfaces/apiTypes';
 import type { MoviesContextType } from '../interfaces/contextTypes';
 import type { MainProps } from '../interfaces/mainTypes';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -14,7 +14,7 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
   const [topMoviesPage, setTopMoviesPage] = useState(1)
   const [contenType, setContentType] = useState('movie')
   const [popularOrTopRated, setPopularOrTopRated] = useState('top_rated')
-
+  const navigate = useNavigate()
 
 
   //Constants
@@ -58,6 +58,7 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
       contenType, setContentType,
       popularOrTopRated, setPopularOrTopRated,
       location, genderTranslator,
+      navigate
       
     }}>{children}</MoviesContext.Provider>
   )

@@ -1,11 +1,20 @@
 @use '../../styles/common' as *;
 
+
+
 .container-nav {
     grid-area: container-nav;
     display: flex;
     justify-content: center;
     gap: 20px;
     height: 10vh;
+    border: 1px solid $border_color_main;
+    background-color: $main_color_theme;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    img{
+        width: 2vw;
+    }
     a{
         text-decoration: none;
     }
@@ -15,7 +24,9 @@
         position: relative;
         padding: 10px;
         cursor: pointer;
-        border: 1px solid yellow;
+        border: 2px solid $border_color_main;
+        
+        font-weight: bold;
         
         &-bar {
             ul{
@@ -49,6 +60,7 @@
             font-weight: bold;
             border: 1px solid $border_color_main;
             background-color: $second_text_color;
+            
         }
 
         &:hover &-bar {
@@ -58,6 +70,10 @@
             
         }
 
+    }
+    &-movies:hover,&-tv:hover,&-people:hover{
+        @include mobileClick();
+        border: 2px solid yellow;
     }
 
 }

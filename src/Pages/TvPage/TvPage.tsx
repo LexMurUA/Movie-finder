@@ -36,20 +36,12 @@ export const TvPage = () => {
           <div className='mini'>
             <span><b>Останній епізод: </b></span>
             <span>Дата: {last_episode_to_air?.air_date}</span>
-            <span>Назва: {last_episode_to_air?.name}</span>
+          
             <span>Сезон: {last_episode_to_air?.season_number}</span>
             <img src={`https://image.tmdb.org/t/p/w500${last_episode_to_air?.still_path}`} alt={last_episode_to_air?.name} />
-            <span></span>
           </div>
 
-          <div className='channels'>
-            {networks?.map((studio, idx) => (
-              <div className='channels-view' key={idx}>
-                <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt={studio.name} />
-                <span>{studio.name}</span>
-              </div>
-            ))}
-          </div>
+       
 
 
           <div className='mini'>
@@ -136,6 +128,15 @@ export const TvPage = () => {
             <span>{vote_count}</span>Кількість голосів:28927
           </div>
 
+
+
+        </div>
+
+
+
+        <article className='container-tv-page-body-about'>
+          <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
+          <p>{overview}</p>
           <div className='studios'>
             {production_companies?.map((studio, idx) => (
               <div className='studios-view' key={idx}>
@@ -146,12 +147,15 @@ export const TvPage = () => {
             ))}
           </div>
 
-
-        </div>
-
-        <article className='container-tv-page-body-about'>
-          <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
-          <p>{overview}</p>
+              <div className='channels'>
+            {networks?.map((studio, idx) => (
+              <div className='channels-view' key={idx}>
+                <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt={studio.name} />
+                <span>{studio.name}</span>
+              </div>
+            ))}
+          </div> 
+          
         </article>
       </div>
 

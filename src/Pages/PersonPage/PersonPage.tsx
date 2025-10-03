@@ -29,7 +29,7 @@ export const PersonPage = () => {
   const genderTranslate = gender !== undefined ? genderTranslator(gender) : "Невідомо";
 
 
-   const isShowControl:isShowControlType = (value,changer) => {
+  const isShowControl: isShowControlType = (value, changer) => {
     changer(!value)
   }
 
@@ -68,7 +68,10 @@ export const PersonPage = () => {
           <span><b>Сайт:</b> {homepage ? homepage : '-'}</span>
         </article>
 
-        <button onClick={() => isShowControl(isShowProjects, setIsShowProjects)}>Показати фільми {isShowProjects ? '-' : '+'}</button>
+        <div className='identity-biography-pannel'>
+          <button onClick={() => isShowControl(isShowProjects, setIsShowProjects)}>Показати фільми {isShowProjects ? '-' : '+'}</button>
+          <button onClick={() => isShowControl(isShowSerials, setIsShowSerials)}>Показати серіали {isShowSerials ? '-' : '+'}</button>
+        </div>
 
         {isShowProjects && (
           <div className='identity-biography-projects'>
@@ -86,21 +89,21 @@ export const PersonPage = () => {
 
         )}
 
-        <button onClick={() => isShowControl(isShowSerials, setIsShowSerials)}>Показати серіали {isShowSerials ? '-' : '+'}</button>
+
 
         {isShowSerials && (
           <div className='identity-biography-projects'>
-          {loadingSerials ? <Loading /> : (
-            serials?.map((serial) => (
-              <Link to={`/tv/${serial.id}`}>
-                <div key={serial.id} className='identity-biography-tvs-icon'>
-                  <img src={`https://image.tmdb.org/t/p/w500${serial.poster_path}`} alt={'Зображення додається...'} />
-                  <span>{serial.original_name}</span>
-                </div>
-              </Link>
-            ))
-          )}
-        </div>
+            {loadingSerials ? <Loading /> : (
+              serials?.map((serial) => (
+                <Link to={`/tv/${serial.id}`}>
+                  <div key={serial.id} className='identity-biography-tvs-icon'>
+                    <img src={`https://image.tmdb.org/t/p/w500${serial.poster_path}`} alt={'Зображення додається...'} />
+                    <span>{serial.original_name}</span>
+                  </div>
+                </Link>
+              ))
+            )}
+          </div>
         )}
 
       </div>

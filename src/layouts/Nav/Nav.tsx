@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 import { useMoviesContext } from '../../context/moviesContext';
 import './Nav.scss';
 import { useEffect } from 'react';
-
+import left from '../../assets/images/left-arrow.png';
+import right from '../../assets/images/right-arrow.png';
 
 
 export const Nav = () => {
     const { setContentType, setPopularOrTopRated,contenType, popularOrTopRated,location } = useMoviesContext()
-    const { setTopMoviesPage } = useMoviesContext()
+    const { setTopMoviesPage,navigate } = useMoviesContext()
 
 
     const changeCategory = (tvOrMovie: 'tv' | 'movie'| 'person', topRatedOrPopular: 'top_rated' | 'popular') => {
@@ -22,9 +23,10 @@ export const Nav = () => {
     }, [location.pathname])
 
     return (
-
+       
         <nav className="container container-nav">
-
+        <button onClick={()=>navigate(-1)}> <img src={left} alt="left" /> </button>
+            
 
             <div className='container-nav-movies'>
                 Фільми
@@ -58,9 +60,10 @@ export const Nav = () => {
                 </div>
 
             </div>
-
+            <button onClick={()=>navigate(1)}> <img src={right} alt="right" /> </button>
 
 
         </nav>
+       
     )
 }

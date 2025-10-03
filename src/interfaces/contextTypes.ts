@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { genderTranslator, isShowControlType, RenderGenresMoviesType } from './apiTypes';
-import type { Location } from 'react-router-dom';
+import type { Location, NavigateFunction } from 'react-router-dom';
 
 
 
@@ -18,6 +18,7 @@ export interface MoviesContextType{
  
   location:Location;
 
+  navigate:NavigateFunction
 
   genderTranslator:genderTranslator
   
