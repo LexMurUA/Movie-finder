@@ -29,6 +29,9 @@ export const TMDB = createApi({
     }),
     getPersonTvs: builder.query<TvCredits,GetTvDetailArgs>({
       query: ({ id }) => `/person/${id}/tv_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
+    }),
+    getUserSearch:builder.query({
+      query: (value) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&query=${value}`
     })
 
 
@@ -38,4 +41,4 @@ export const TMDB = createApi({
 
 export const { useGetTopRatedMoviesQuery, useGetAllGenresMoviesQuery,
   useGetMovieOrTvDetailQuery, useGetPopularPersonsQuery,
-  useGetPersonDetailQuery, useGetPersonMoviesQuery,useGetPersonTvsQuery } = TMDB
+  useGetPersonDetailQuery, useGetPersonMoviesQuery,useGetPersonTvsQuery, useGetUserSearchQuery } = TMDB
