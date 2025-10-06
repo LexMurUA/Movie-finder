@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { TMDB_API_KEY, TMDB_URL_MAIN } from '../constants/api';
-import { GetPersonDetailResponse, type CastTypes, type GetMovieOrTvDetail, type GetPersonDetailArgs, type getPopularPersonsArgs, type getPopularPersonsTypes, type GetTvDetailArgs, type MovieGenreResponse, type OneMovieOrTvPageArgs, type TopRatedMoviesResponse, type TopRatedQueryArgs, type TvCreditArgs, type TvCredits } from '../interfaces/apiTypes';
+import { GetPersonDetailResponse, type CastTypes, type GetMovieOrTvDetail, type GetPersonDetailArgs, type getPopularPersonsArgs, type getPopularPersonsTypes, type GetTvDetailArgs, type GetUserSearchArgs, type GetUserSearchResponse, type GetUserSearchTypes, type MovieGenreResponse, type OneMovieOrTvPageArgs, type TopRatedMoviesResponse, type TopRatedQueryArgs, type TvCreditArgs, type TvCredits } from '../interfaces/apiTypes';
 
 
 export const TMDB = createApi({
@@ -30,8 +30,8 @@ export const TMDB = createApi({
     getPersonTvs: builder.query<TvCredits,GetTvDetailArgs>({
       query: ({ id }) => `/person/${id}/tv_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
     }),
-    getUserSearch:builder.query({
-      query: (value) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&query=${value}`
+    getUserSearch:builder.query<GetUserSearchResponse,GetUserSearchArgs>({
+      query: ({value}) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&query=${value}`
     })
 
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import type { DebounceHook } from "../interfaces/mainTypes";
 
-export const useDebounce = (value, delay = 500) => {
+export const useDebounce:DebounceHook = (value, delay = 1000) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -9,7 +10,7 @@ export const useDebounce = (value, delay = 500) => {
     }, delay);
 
     return () => {
-      clearTimeout(timerId); // чистка попереднього таймера
+      clearTimeout(timerId); 
     };
   }, [value, delay]);
 

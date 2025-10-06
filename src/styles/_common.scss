@@ -51,6 +51,14 @@ $main_color_theme:rgba(99, 58, 169, 0.396);
   
 }
 
+.text-one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
 //MOBILE
 
 @mixin breakPoint($point) {

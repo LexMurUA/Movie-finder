@@ -12,6 +12,7 @@
     background-color: $main_color_theme;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    z-index: 1;
     img{
         width: 2vw;
     }
@@ -25,11 +26,11 @@
         padding: 10px;
         cursor: pointer;
         border: 2px solid $border_color_main;
-        
+        z-index: 10;
         font-weight: bold;
         
         &-bar {
-            z-index: 9999;
+            
             ul{
                 display: flex;
                 justify-content: center;
@@ -53,7 +54,7 @@
             color: white;
             padding: 10px;
             border-radius: 25px;
-            z-index: 10;
+            
             font-size: .8vw;
         }
         &-bar li:hover{
@@ -68,7 +69,7 @@
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
-            
+            z-index: 5;
         }
 
     }

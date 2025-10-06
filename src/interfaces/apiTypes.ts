@@ -138,19 +138,19 @@ export interface MovieGenre {
 //FUNKTIONS===
 export type RenderGenresMoviesType = (currentGenres: number[], allGenres: MovieGenre[]) => string[]
 export type genderTranslator = (id: number) => "Не вказано" | "Жінка" | "Чоловік" | "Небінарний" | "Невідомо" | undefined
-export type isShowControlType = (value:boolean,changer: React.Dispatch<React.SetStateAction<boolean>>) => void
+export type isShowControlType = (value: boolean, changer: React.Dispatch<React.SetStateAction<boolean>>) => void
 //FUNKTIONS===
 
-export interface getPopularPersonsArgs{
-  page?:number,
-}
 
 
 //Person enpoints===
+export interface getPopularPersonsArgs {
+  page?: number,
+}
 
 export interface getPopularPersonsTypes {
   page: number
-  results: getPopularPersonsRes[] 
+  results: getPopularPersonsRes[]
   total_pages: number
   total_results: number
 }
@@ -171,7 +171,7 @@ export interface PersonProjectType {
   backdrop_path: string,
   genre_ids: number[],
   id: number,
-  media_type: string,       
+  media_type: string,
   original_language: string,
   original_title: string,
   overview: string,
@@ -179,13 +179,13 @@ export interface PersonProjectType {
   poster_path: string,
   release_date: string,
   title: string
-  video?: boolean,               
+  video?: boolean,
   vote_average: number,
   vote_count: number
 }
 
 export interface GetPersonDetailArgs {
-  id:number
+  id: number
 }
 
 export interface GetPersonDetailResponse {
@@ -200,7 +200,7 @@ export interface GetPersonDetailResponse {
   imdb_id: string,
   known_for_department: string,
   name: string,
-  place_of_birth:string,
+  place_of_birth: string,
   popularity: number,
   profile_path: string
 }
@@ -208,7 +208,7 @@ export interface GetPersonDetailResponse {
 export interface CastTypes {
   cast: CreditItem[],
   crew: CreditItem[],
-  id:number
+  id: number
 }
 
 export interface CreditItem {
@@ -266,7 +266,7 @@ export interface TvCreditTypes {
   adult: boolean;
   backdrop_path: string | null;
   credit_id: string;
-  episode_count:number,
+  episode_count: number,
   genre_ids: number[];
   id: number;
   original_language: string;
@@ -276,7 +276,7 @@ export interface TvCreditTypes {
   poster_path: string | null;
   first_air_date: string;
   first_credit_air_date: string;
-  origin_country:string[]
+  origin_country: string[]
 
   name: string;
   vote_average: number;
@@ -289,4 +289,37 @@ export interface TvCreditTypes {
   job?: string;
 }
 
+//Search endpoints
+export interface GetUserSearchResponse {
+  page: number,
+  results: GetUserSearchTypes[],
+  total_pages: number,
+  total_results: number
 
+}
+
+export interface GetUserSearchTypes {
+  adult: boolean,
+  backdrop_path: string,
+  id: number,
+  name?: string,
+  title?: string,
+  original_language: string,
+  original_title?: string,
+  original_name?: string,
+  overview: string,
+  poster_path: string,
+  media_type: 'tv' | 'movie',
+  genre_ids: number[],
+  popularity: number,
+  release_date?: string,
+  first_air_date?: string,
+  video?: boolean,
+  vote_average: number,
+  vote_count: number,
+  origin_country?: string[],
+}
+
+export interface GetUserSearchArgs {
+  value: string | number
+}
