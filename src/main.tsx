@@ -12,6 +12,7 @@ import { MainPage } from './Pages/MainPage/MainPage.tsx'
 import { MoviePage } from './Pages/MoviePage/MoviePage.tsx'
 import { TvPage } from './Pages/TvPage/TvPage.tsx'
 import { PersonPage } from './Pages/PersonPage/PersonPage.tsx'
+import { SearchPage } from './Pages/SearchPage/SearchPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -30,6 +31,9 @@ createRoot(document.getElementById('root')!).render(
 
             <Route path='/popularPersons' element={<PopularPersons />} />
             <Route path='/person/:id' element={<PersonPage />} />
+            
+            
+            <Route path='/search/:value' element={<SearchPage />} />
 
 
           </Route>

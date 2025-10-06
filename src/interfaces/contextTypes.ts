@@ -15,7 +15,9 @@ export interface MoviesContextType{
   popularOrTopRated:string
   setPopularOrTopRated:React.Dispatch<React.SetStateAction<string>>
 
- 
+  searchValue: string | number
+  setSearchValue: React.Dispatch<React.SetStateAction<string | number>>
+  
   location:Location;
 
   navigate:NavigateFunction

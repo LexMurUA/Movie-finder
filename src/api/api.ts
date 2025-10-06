@@ -31,7 +31,7 @@ export const TMDB = createApi({
       query: ({ id }) => `/person/${id}/tv_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
     }),
     getUserSearch:builder.query<GetUserSearchResponse,GetUserSearchArgs>({
-      query: ({value}) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&query=${value}`
+      query: ({value,page=1}) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}&query=${value}`
     })
 
 

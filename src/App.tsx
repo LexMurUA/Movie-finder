@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-      <Header />
       <MoviesContextProvider>
+        <Header />
         <Nav />
         <Main>
           <Outlet />

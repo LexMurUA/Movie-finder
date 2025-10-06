@@ -321,5 +321,6 @@ export interface GetUserSearchTypes {
 }
 
 export interface GetUserSearchArgs {
-  value: string | number
+  value: string | number;
+  page?: number;
 }

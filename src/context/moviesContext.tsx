@@ -15,7 +15,7 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
   const [contenType, setContentType] = useState('movie')
   const [popularOrTopRated, setPopularOrTopRated] = useState('top_rated')
   const navigate = useNavigate()
-
+  const [searchValue, setSearchValue] = useState<string | number>('')
 
   //Constants
   const location = useLocation()
@@ -58,7 +58,8 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
       contenType, setContentType,
       popularOrTopRated, setPopularOrTopRated,
       location, genderTranslator,
-      navigate
+      navigate,
+      searchValue, setSearchValue
       
     }}>{children}</MoviesContext.Provider>
   )
