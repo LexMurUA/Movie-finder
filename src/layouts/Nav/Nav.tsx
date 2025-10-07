@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Links } from 'react-router-dom';
 import left from '../../assets/images/left-arrow.png';
 import right from '../../assets/images/right-arrow.png';
 import { useMoviesContext } from '../../context/moviesContext';
 import './Nav.scss';
+import home from '../../assets/images/home.png';
 
 
 export const Nav = () => {
@@ -27,6 +28,7 @@ export const Nav = () => {
 
         <nav className="container container-nav">
             <button onClick={() => navigate(-1)}> <img src={left} alt="left" /> </button>
+            <button> <Link to='/'><img src={home} alt="On Main" /></Link>  </button>
 
 
             <div className='container-nav-movies'>
