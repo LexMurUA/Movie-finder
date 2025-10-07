@@ -4,12 +4,13 @@ import { useGetUserSearchQuery } from '../../api/api';
 import { useDebounce } from '../../hooks/useDebounce';
 import { Loading } from '../Loading/Loading';
 import soon from '../../assets/images/soon.jpg';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useMoviesContext } from '../../context/moviesContext';
+import type { searchEnterType } from '../../interfaces/mainTypes';
 
 
 export const Search = () => {
-  const {searchValue , setSearchValue} = useMoviesContext()
+  const {searchValue , setSearchValue, navigate} = useMoviesContext()
   const debouncedValue = useDebounce(searchValue)
   const { data, isLoading } = useGetUserSearchQuery({ value: debouncedValue })
   const { results,total_results } = data ?? {}
@@ -17,13 +18,19 @@ export const Search = () => {
   const quantityOfView = results && results?.length <= 14 ? results.length : 14
 
 
+  const searchEnter:searchEnterType = (e,searchValue)=>{
+    if(searchValue === '')return;
+    if (e.key === 'Enter'){
+      navigate(`/search/${searchValue}`)
+    }
 
+  }
 
   return (
     <section className='header-search'>
 
       <div className='header-search-panel'>
-        <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder='Пошук...' type="text" />
+        <input onKeyDown={(e)=>searchEnter(e,debouncedValue)} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder='Пошук...' type="text" />
         {searchValue != '' && (
           <div className='header-search-panel-results'>
             {isLoading ? <Loading /> : (
@@ -45,7 +52,7 @@ export const Search = () => {
              
             )}
             <div className='header-search-panel-bar'><div>Загальна кількість: <span>{total_results}</span></div>
-              <button><Link to={`search/${debouncedValue}`}>Усі результати</Link></button></div>
+              <div><button><Link to={`search/${debouncedValue}`}>Усі результати</Link></button></div></div>
           </div>
         )}
 

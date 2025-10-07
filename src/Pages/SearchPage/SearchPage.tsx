@@ -8,13 +8,13 @@ import { Pagination } from '../../components/Pagination/Pagination';
 
 
 export const SearchPage = () => {
-  const {topMoviesPage} = useMoviesContext()
-  const {value} = useParams()
+  const { topMoviesPage } = useMoviesContext()
+  const { value } = useParams()
 
   if (!value) return <Loading />
-  const { data, isLoading, } = useGetUserSearchQuery({ value: value,page : topMoviesPage })
-  const { results, total_results ,total_pages,page } = data ?? {}
-  
+  const { data, isLoading, } = useGetUserSearchQuery({ value: value, page: topMoviesPage })
+  const { results, total_results, total_pages, page } = data ?? {}
+
 
 
 
@@ -24,17 +24,17 @@ export const SearchPage = () => {
   return (
     <section className='container container-search'>
       <div className='container-search-page'>
-        {results?.map((result,idx)=>(
-          <div key={idx} className='container-search-page-item'>
-            <Link to={result.media_type === 'movie' ? `/movie/${result.id}` : `/tv/${result.id}`}>
+        {results?.map((result, idx) => (
+          <Link to={result.media_type === 'movie' ? `/movie/${result.id}` : `/tv/${result.id}`}>
+            <div key={idx} className='container-search-page-item'>
               <span>{result.release_date ?? result.first_air_date}</span>
-              <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} alt='Foto' />
+              {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} alt='Foto' />:<img src={soon} alt='Foto' />}
               <span>{result.name ?? result.title}</span>
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
-        <Pagination totalPages={Math.min(data?.total_pages ?? 0, 500)} />
+      <Pagination totalPages={Math.min(data?.total_pages ?? 0, 500)} />
     </section>
   )
 }

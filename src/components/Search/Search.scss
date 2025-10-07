@@ -3,19 +3,18 @@
 header .header-search {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
 
 
 
     &-panel {
         display: flex;
         flex-direction: column;
-        border: 1px solid salmon;
         align-items: center;
+        justify-content: center;
         position: relative;
         z-index: 50;
 
@@ -40,33 +39,36 @@ header .header-search {
             position: absolute;
             background-color: white;
             border: 2px solid $border_color_main;
-            width: 45vw;
+            width: 58vw;
             transform: translate(-50%);
             top: 100%;
             left: 50%;
             z-index: 50;
             display: flex;
             flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px 5px;
             justify-content: space-evenly;
             min-height: 100px;
             overflow: auto;
             &-item {
-                border: 1px solid salmon;
-                background-color: red;
-                width: 6vw;
+                background-color: $main_color_theme;
+                border: 1px solid $border_color_main;
+                border-radius: 25px;
+                width: 7vw;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 0 5px;
+                padding: 7px;
                 gap: 5px;
+                @include mobileClick();
                 img {
                     width: 5vw;
                 }
                 span{
                     font-weight: bold;
                     font-size: .6vw;
-                    border: 1px solid blue;
                     @extend .protect-text;
                 }
 
@@ -75,9 +77,27 @@ header .header-search {
 
         }
         &-bar{
+            border-top: 2px dotted $border_color_main;
+            padding: 5px;
             margin: 20px;
             display: flex;
             gap: 20px;
+            div{
+                width: 15vw;
+            }
+            button{
+                padding: 5px;
+                background-color: $main_color_theme;
+                border: 1px solid $border_color_main;
+            }
+            button:hover{
+            color: $main_text_color;
+            font-weight: bold;
+            border: 2px solid yellow;
+            background-color: $second_text_color;
+            
+        }
+
         }
     }
 }

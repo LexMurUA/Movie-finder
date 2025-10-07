@@ -1,11 +1,13 @@
-import { TopRatedMovies } from "../../components/TopRatedMovies/TopRatedMovies"
+import { InCinema } from "../../components/InCinema/InCinema"
+import './MainPage.scss';
 
 
+export const MainPage = () => {
 
-export const MainPage = ()=>{
+    return (
+        <section className="container container-main">
+            <InCinema />
+        </section>
 
-    return(
-        
-       <p>sdds</p>
     )
 }

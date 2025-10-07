@@ -1,3 +1,4 @@
+import type React from "react";
 import type { ReactNode } from "react";
 
 export interface MainProps {
@@ -6,3 +7,4 @@ export interface MainProps {
 
 export type DebounceHook = (value:string|number,num?:number) => string|number
 
+export type searchEnterType = (e:React.KeyboardEvent<HTMLInputElement>,,value:string | number)=>void

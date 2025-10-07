@@ -1,0 +1,16 @@
+@use '../../styles/common' as *;
+
+
+.incinema{
+      margin: 20px 0;
+  padding: 20px;
+  border: 2px solid $border_color_main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
+    img{
+        width: 5vw;
+    }
+}
