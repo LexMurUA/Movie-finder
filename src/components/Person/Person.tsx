@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useMoviesContext } from '../../context/moviesContext';
 import type { getPopularPersonsRes } from '../../interfaces/apiTypes';
 import { PersonProject } from '../PersonProj/PersonProject';
 import './Person.scss';
-import type { useState } from 'react';
-import { useMoviesContext } from '../../context/moviesContext';
 
 
 export const Person = ({ id, gender, known_for, known_for_department, name, original_name, popularity, profile_path }: getPopularPersonsRes) => {
-const {genderTranslator} = useMoviesContext()
+  const { genderTranslator } = useMoviesContext()
   return (
     <Link to={`/person/${id}`}>
       <div className='person'>

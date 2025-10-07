@@ -12,8 +12,8 @@ export const SearchPage = () => {
   const { value } = useParams()
 
   if (!value) return <Loading />
-  const { data, isLoading, } = useGetUserSearchQuery({ value: value, page: topMoviesPage })
-  const { results, total_results, total_pages, page } = data ?? {}
+  const { data, } = useGetUserSearchQuery({ value: value, page: topMoviesPage })
+  const { results } = data ?? {}
 
 
 

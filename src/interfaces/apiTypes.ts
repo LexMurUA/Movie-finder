@@ -35,6 +35,8 @@ export interface GetMovieOrTvDetail {
     profile_path: string | null;
   }[];
 
+  name?: string; // ✅ ось цього бракувало
+
   episode_run_time?: number[];
   first_air_date?: string;
   last_air_date?: string;
@@ -70,7 +72,7 @@ export interface GetMovieOrTvDetail {
   networks?: {
     id: number;
     logo_path: string | null;
-    name: string;
+    name?: string;
     origin_country: string;
   }[];
 
@@ -114,6 +116,7 @@ export interface GetMovieOrTvDetail {
   vote_average: number;
   vote_count: number;
 }
+
 
 export type TopRatedQueryArgs = {
   page?: number

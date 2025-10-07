@@ -7,4 +7,4 @@ export interface MainProps {
 
 export type DebounceHook = (value:string|number,num?:number) => string|number
 
-export type searchEnterType = (e:React.KeyboardEvent<HTMLInputElement>,,value:string | number)=>void
+export type searchEnterType = (e:React.KeyboardEvent<HTMLInputElement>,value:string | number)=>void

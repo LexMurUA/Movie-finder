@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
-import { Link, Links } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import home from '../../assets/images/home.png';
 import left from '../../assets/images/left-arrow.png';
 import right from '../../assets/images/right-arrow.png';
 import { useMoviesContext } from '../../context/moviesContext';
 import './Nav.scss';
-import home from '../../assets/images/home.png';
 
 
 export const Nav = () => {
-    const { setContentType, setPopularOrTopRated, contenType, popularOrTopRated, location, searchValue, setSearchValue } = useMoviesContext()
+    const { setContentType, setPopularOrTopRated,  location, setSearchValue } = useMoviesContext()
     const { setTopMoviesPage, navigate } = useMoviesContext()
 
 

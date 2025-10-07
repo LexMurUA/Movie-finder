@@ -9,12 +9,12 @@ export const TvPage = () => {
   const { id } = useParams()
 
   const { data, isLoading } = useGetMovieOrTvDetailQuery({ id: Number(id), tvOrMovie: 'tv' })
-
-  const { backdrop_path, created_by, first_air_date, genres, homepage, in_production, status, tagline, vote_average, vote_count,
-    last_air_date, last_episode_to_air, name, networks, next_episode_to_air, number_of_episodes, number_of_seasons,
+  
+  const { backdrop_path, created_by, first_air_date, genres, homepage, status, tagline, vote_average, vote_count,
+    last_episode_to_air, name, networks, number_of_episodes, number_of_seasons,
     original_language, original_name, overview, popularity, poster_path, production_companies, production_countries, seasons
   } = data ?? {}
-
+  
   isLoading && <Loading />
 
   return (
@@ -36,12 +36,12 @@ export const TvPage = () => {
           <div className='mini'>
             <span><b>Останній епізод: </b></span>
             <span>Дата: {last_episode_to_air?.air_date}</span>
-          
+
             <span>Сезон: {last_episode_to_air?.season_number}</span>
             <img src={`https://image.tmdb.org/t/p/w500${last_episode_to_air?.still_path}`} alt={last_episode_to_air?.name} />
           </div>
 
-       
+
 
 
           <div className='mini'>
@@ -71,8 +71,8 @@ export const TvPage = () => {
           </div>
 
           <div className='mini'>
-            <span><b>Наступний епізод: </b></span>
-            <span>{next_episode_to_air}</span>
+            <span><b>Статус: </b></span>
+            <span>{status}</span>
           </div>
 
           <div className='mini'>
@@ -147,15 +147,15 @@ export const TvPage = () => {
             ))}
           </div>
 
-              <div className='channels'>
+          <div className='channels'>
             {networks?.map((studio, idx) => (
               <div className='channels-view' key={idx}>
                 <img src={`https://image.tmdb.org/t/p/w500${studio.logo_path}`} alt={studio.name} />
                 <span>{studio.name}</span>
               </div>
             ))}
-          </div> 
-          
+          </div>
+
         </article>
       </div>
 

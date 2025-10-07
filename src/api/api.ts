@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { TMDB_API_KEY, TMDB_URL_MAIN } from '../constants/api';
-import { GetPersonDetailResponse, type CastTypes, type GetInCinemaNowRes, type getInCinemaNowRes, type GetMovieOrTvDetail, type GetPersonDetailArgs, type getPopularPersonsArgs, type getPopularPersonsTypes, type GetTvDetailArgs, type GetUserSearchArgs, type GetUserSearchResponse, type GetUserSearchTypes, type MovieGenreResponse, type OneMovieOrTvPageArgs, type TopRatedMoviesResponse, type TopRatedQueryArgs, type TvCreditArgs, type TvCredits } from '../interfaces/apiTypes';
+import { type CastTypes, type GetInCinemaNowRes, type GetMovieOrTvDetail, type GetPersonDetailArgs, type GetPersonDetailResponse, type getPopularPersonsArgs, type getPopularPersonsTypes, type GetTvDetailArgs, type GetUserSearchArgs, type GetUserSearchResponse, type MovieGenreResponse, type OneMovieOrTvPageArgs, type TopRatedMoviesResponse, type TopRatedQueryArgs, type TvCredits } from '../interfaces/apiTypes';
 
 
 export const TMDB = createApi({
@@ -27,14 +27,14 @@ export const TMDB = createApi({
     getPersonMovies: builder.query<CastTypes, GetPersonDetailArgs>({
       query: ({ id }) => `/person/${id}/movie_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
     }),
-    getPersonTvs: builder.query<TvCredits,GetTvDetailArgs>({
+    getPersonTvs: builder.query<TvCredits, GetTvDetailArgs>({
       query: ({ id }) => `/person/${id}/tv_credits?api_key=${TMDB_API_KEY}&language=uk-UA`
     }),
-    getUserSearch:builder.query<GetUserSearchResponse,GetUserSearchArgs>({
-      query: ({value,page=1}) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}&query=${value}`
+    getUserSearch: builder.query<GetUserSearchResponse, GetUserSearchArgs>({
+      query: ({ value, page = 1 }) => `search/multi?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}&query=${value}`
     }),
-    getInCinemaNow:builder.query<GetInCinemaNowRes,getPopularPersonsArgs>({
-      query:({page=1})=>`movie/now_playing?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}`
+    getInCinemaNow: builder.query<GetInCinemaNowRes, getPopularPersonsArgs>({
+      query: ({ page = 1 }) => `movie/now_playing?api_key=${TMDB_API_KEY}&language=uk-UA&page=${page}`
     })
 
 
@@ -44,4 +44,4 @@ export const TMDB = createApi({
 
 export const { useGetTopRatedMoviesQuery, useGetAllGenresMoviesQuery,
   useGetMovieOrTvDetailQuery, useGetPopularPersonsQuery,
-  useGetPersonDetailQuery, useGetPersonMoviesQuery,useGetPersonTvsQuery, useGetUserSearchQuery,useGetInCinemaNowQuery } = TMDB
+  useGetPersonDetailQuery, useGetPersonMoviesQuery, useGetPersonTvsQuery, useGetUserSearchQuery, useGetInCinemaNowQuery } = TMDB

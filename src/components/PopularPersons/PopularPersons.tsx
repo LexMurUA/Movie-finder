@@ -10,7 +10,7 @@ import './PopularPersons.scss';
 export const PopularPersons = () => {
   const {topMoviesPage} = useMoviesContext()
   const {data, isLoading} = useGetPopularPersonsQuery({page:topMoviesPage})
-  const { results, total_pages, total_results } = data ?? {}
+  const { results, total_pages } = data ?? {}
  
   
   

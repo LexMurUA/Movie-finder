@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from 'react';
-import type { genderTranslator, isShowControlType, RenderGenresMoviesType } from '../interfaces/apiTypes';
+import { useLocation, useNavigate } from 'react-router-dom';
+import type { genderTranslator, RenderGenresMoviesType } from '../interfaces/apiTypes';
 import type { MoviesContextType } from '../interfaces/contextTypes';
 import type { MainProps } from '../interfaces/mainTypes';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -34,7 +34,7 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
     return genres
   }
 
-  const genderTranslator:genderTranslator = (id) => {
+  const genderTranslator: genderTranslator = (id) => {
     switch (id) {
       case 0:
         return 'Не вказано';
@@ -60,7 +60,7 @@ export const MoviesContextProvider = ({ children }: MainProps) => {
       location, genderTranslator,
       navigate,
       searchValue, setSearchValue
-      
+
     }}>{children}</MoviesContext.Provider>
   )
 }

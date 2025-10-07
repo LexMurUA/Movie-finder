@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useGetPersonDetailQuery, useGetPersonMoviesQuery, useGetPersonTvsQuery, useLazyGetPersonTvsQuery } from '../../api/api';
+import { useGetPersonDetailQuery, useGetPersonMoviesQuery, useGetPersonTvsQuery } from '../../api/api';
 import { Loading } from '../../components/Loading/Loading';
 import { useMoviesContext } from '../../context/moviesContext';
-import './PersonPage.scss';
-import { useState } from 'react';
 import type { isShowControlType } from '../../interfaces/apiTypes';
+import './PersonPage.scss';
 
 export const PersonPage = () => {
   const { genderTranslator, } = useMoviesContext()
