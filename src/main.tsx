@@ -17,7 +17,7 @@ import { SearchPage } from './Pages/SearchPage/SearchPage.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter >
+      <BrowserRouter basename="Movie-finder" >
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<MainPage />} />
