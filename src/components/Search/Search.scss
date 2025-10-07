@@ -65,9 +65,11 @@ header .header-search {
                 @include mobileClick();
                 img {
                     width: 5vw;
+                    margin-top: 5px;
                 }
                 span{
                     font-weight: bold;
+                    border-bottom: 1px dotted $border_color_main;
                     font-size: .6vw;
                     @extend .protect-text;
                 }
@@ -96,7 +98,14 @@ header .header-search {
             border: 2px solid yellow;
             background-color: $second_text_color;
             
-        }
+            }
+            img{
+                cursor: pointer;
+                @include mobileClick();
+                width: 2.5vw;
+                
+                
+            }
 
         }
     }

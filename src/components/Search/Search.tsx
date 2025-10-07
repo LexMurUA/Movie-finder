@@ -7,7 +7,7 @@ import soon from '../../assets/images/soon.jpg';
 import { Link, Navigate } from 'react-router-dom';
 import { useMoviesContext } from '../../context/moviesContext';
 import type { searchEnterType } from '../../interfaces/mainTypes';
-
+import x from '../../assets/images/X.svg'
 
 export const Search = () => {
   const {searchValue , setSearchValue, navigate} = useMoviesContext()
@@ -52,7 +52,8 @@ export const Search = () => {
              
             )}
             <div className='header-search-panel-bar'><div>Загальна кількість: <span>{total_results}</span></div>
-              <div><button><Link to={`search/${debouncedValue}`}>Усі результати</Link></button></div></div>
+              <div><button><Link to={`search/${debouncedValue}`}>Усі результати</Link></button></div><img src={x} alt="x" onClick={()=>setSearchValue('')} /> </div>
+             
           </div>
         )}
 
