@@ -29,7 +29,9 @@
         border: 2px solid $border_color_main;
         z-index: 10;
         font-weight: bold;
-        
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &-bar {
             
             ul{
@@ -78,4 +80,39 @@
         border: 2px solid yellow;
     }
 
+}
+
+
+@include breakPoint(tablet) {
+.container-nav{
+    gap: 5px;
+    button{
+        width: 50px;
+        height: 50px;
+    }
+    &-movies,
+    &-people,
+    &-tv {
+        height: 50px;
+        max-width: 120px;
+        font-size: clamp(.5rem,.8vw,2rem);
+  }
+}
+}
+
+@include breakPoint(phone) {
+.container-nav{
+    gap: 5px;
+    button{
+        width: 25px;
+        height: 25px;
+    }
+    &-movies,
+    &-people,
+    &-tv {
+        height: 25px;
+        max-width: 120px;
+        
+  }
+}
 }

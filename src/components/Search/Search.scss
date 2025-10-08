@@ -1,6 +1,6 @@
 @use '../../styles/common' as *;
 
-header .header-search {
+.header-search {
     width: 100%;
     height: 100%;
     display: flex;
@@ -19,6 +19,7 @@ header .header-search {
         z-index: 50;
 
         input {
+            min-width: 250px;
             width: 15vw;
             border: 2px solid $border_color_main;
             border-radius: 25px;
@@ -54,18 +55,18 @@ header .header-search {
             &-item {
                 background-color: $main_color_theme;
                 border: 1px solid $border_color_main;
-                border-radius: 25px;
-                width: 7vw;
+                width: 110px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 7px;
-                gap: 5px;
+                padding: 5px;
+                height: 220px;
                 @include mobileClick();
                 img {
-                    width: 5vw;
-                    margin-top: 5px;
+                  width: 100%;
+                  margin-top: 5px;
+                  max-height: 213px;
                 }
                 span{
                     font-weight: bold;
@@ -108,5 +109,51 @@ header .header-search {
             }
 
         }
+    }
+}
+
+
+@include breakPoint(tablet) {
+    .header-search {
+        &-panel {
+
+            &-results{
+    
+                background-color: greenyellow;
+            }
+            &-bar{
+                  img{
+             width: 25px;
+             height: 25px;
+              }   
+            }
+        }
+
+    }
+}
+
+@include breakPoint(phone) {
+    .header-search {
+        &-panel {
+
+            &-results{
+    
+                background-color: red;
+            }
+            &-bar{
+                flex-direction: column-reverse;
+                align-items: center;
+                
+                div{
+                    text-align: center;
+                    width: 100%;
+                }
+              img{
+             width: 25px;
+             height: 25px;
+              }  
+            }
+        }
+
     }
 }

@@ -23,6 +23,7 @@ export const SearchPage = () => {
 
   return (
     <section className='container container-search'>
+       <h2>Результат пошуку</h2>
       <div className='container-search-page'>
         {results?.map((result, idx) => (
           <Link to={result.media_type === 'movie' ? `/movie/${result.id}` : `/tv/${result.id}`}>

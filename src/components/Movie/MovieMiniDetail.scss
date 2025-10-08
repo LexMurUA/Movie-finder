@@ -10,7 +10,7 @@ a {
     @include mobileClick();
     border: 2px solid rgba(0, 0, 0, 0.347);
     border-radius: 25px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 20px 25px;
@@ -29,6 +29,7 @@ a {
 
         img {
             width: 10vw;
+          
 
         }
     }
@@ -38,7 +39,7 @@ a {
         flex-direction: column;
         gap: 15px;
         width: 50vw;
-        
+
         &-info {
             display: flex;
             align-items: baseline;
@@ -79,5 +80,57 @@ a {
             max-width: 100%;
         }
 
+    }
+}
+
+@include breakPoint(tablet) {
+    .moveminidetail {
+        gap: 5px;
+        flex-direction: column;
+        padding: 5px;
+        max-width: 500px;
+        &-header {
+            width: 75%;
+            flex-direction: row;
+            h3{
+                width: 100%;     
+            }
+            img{
+                min-width: 85px;
+                min-height: 125px;
+            }
+        }
+        &-body {
+            width: 100%;
+            &-info {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+@include breakPoint(phone) {
+    .moveminidetail {
+
+        flex-direction: column;
+        padding: 5px;
+        max-width: 400px;
+     
+        &-header {
+
+            width: 75%;
+            flex-direction: row;
+            h3{
+                width: 100%;
+                
+            }
+
+        }
+
+        &-body {
+            &-info {
+                flex-wrap: wrap;
+            }
+        }
     }
 }
