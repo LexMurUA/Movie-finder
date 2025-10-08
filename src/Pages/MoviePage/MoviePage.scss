@@ -78,3 +78,40 @@
    
 }
 
+@include breakPoint(desktop){
+    .container-movie-page{
+        background-color: rgb(13, 255, 0);
+        &-detail{
+            flex-direction: column;
+            border: 1px solid blue;
+            &-info{
+                justify-content: center;
+                grid-template: repeat(4 ,1fr)/repeat(4 ,1fr);
+                width: 100%;
+            }
+        }
+    }
+}
+@include breakPoint(laptop){
+    .container-movie-page{
+        background-color: rgb(255, 0, 162);
+    }
+}
+@include breakPoint(tablet){
+    .container-movie-page{
+        background-color: rgb(55, 0, 255);
+    }
+}
+@include breakPoint(phone){
+.container-movie-page{
+    background-color: red;
+        &-detail{
+
+         &-about{
+            img{
+                width: 10vw;
+            }
+         }
+        }
+        }
+}
