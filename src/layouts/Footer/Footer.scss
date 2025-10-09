@@ -57,6 +57,7 @@
             gap: 10px;
 
             img {
+                margin-top: 10px;
                 @include mobileClick();
             }
         }
@@ -97,7 +98,6 @@
 
 @include breakPoint(tablet) {
     .container-footer {
-        border-top: 2px solid rgb(98, 0, 255);
         justify-content: center;
         &-logo{
             width: 45%;
