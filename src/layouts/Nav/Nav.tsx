@@ -22,6 +22,7 @@ export const Nav = () => {
 
         setTopMoviesPage(1)
         setSearchValue('')
+        
     }, [location.pathname])
 
     return (

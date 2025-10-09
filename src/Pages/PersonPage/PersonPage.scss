@@ -108,19 +108,8 @@
 
 }
 
-@include breakPoint(desktop){
-  .identity{
-    background-color: greenyellow;
-  }
-}
-@include breakPoint(laptop){
-  .identity{
-    background-color: rgb(255, 0, 221);
-  }
-}
 @include breakPoint(tablet){
   .identity{
-    background-color: rgb(5, 0, 255);
     &-box{
       flex-direction: column;
       
