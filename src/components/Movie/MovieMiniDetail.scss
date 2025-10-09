@@ -26,6 +26,8 @@ a {
         h3 {
             width: 15vw;
             max-width: 100%;
+            @extend .protect-text;
+            border-bottom: 1px dotted $border_color_main;
         }
 
         img {
