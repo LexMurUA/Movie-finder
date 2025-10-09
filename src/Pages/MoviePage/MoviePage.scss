@@ -42,6 +42,9 @@
                flex-direction: column;
                text-align: left;
                padding: 0 20px;
+               span{
+                border-bottom: 1px dotted $border_color_main;
+               }
             }
             div:last-child{
                 grid-column: -5/-1;
@@ -80,10 +83,9 @@
 
 @include breakPoint(desktop){
     .container-movie-page{
-        background-color: rgb(13, 255, 0);
         &-detail{
             flex-direction: column;
-            border: 1px solid blue;
+            gap: 20px;
             &-info{
                 justify-content: center;
                 grid-template: repeat(4 ,1fr)/repeat(4 ,1fr);
@@ -93,23 +95,43 @@
     }
 }
 @include breakPoint(laptop){
-    .container-movie-page{
-        background-color: rgb(255, 0, 162);
-    }
+
 }
 @include breakPoint(tablet){
     .container-movie-page{
-        background-color: rgb(55, 0, 255);
-    }
+
+        &-detail{
+           &-info{
+             display: flex;
+            flex-wrap: wrap;
+            .mini{
+                width: 100%;
+                text-align: center;             
+            }
+           }
+         &-about{
+            margin-top: 5px;
+            p{
+                 width: 100%;
+            }
+            img{
+                width: 100%;
+            }
+         }
+        }
+        }
 }
 @include breakPoint(phone){
 .container-movie-page{
-    background-color: red;
+
         &-detail{
 
          &-about{
+            p{
+                 width: 100%;
+            }
             img{
-                width: 10vw;
+                width: 100%;
             }
          }
         }

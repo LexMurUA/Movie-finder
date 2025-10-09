@@ -9,6 +9,8 @@
     align-items: center;
     padding: 20px;
     width: 40vw;
+    min-width: 285px;
+    
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),0 4px 8px rgba(0, 0, 0, 0.1);
     gap: 25px;
     background-color: rgba(99, 58, 169, 0.396);
@@ -31,5 +33,26 @@
         justify-content: center;
         flex-wrap: wrap;
         
+    }
+}
+
+@include breakPoint(tablet){
+    .person{
+        &-header{
+            img{
+                width: 50px;
+            }
+        }
+        height:auto;
+        height: 400px;
+        &-project{
+            width: 100%;
+            
+        }
+    }
+}
+@include breakPoint(phone){
+    .person{
+        max-height: 400px;
     }
 }

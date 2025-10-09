@@ -16,8 +16,8 @@ export const InCinema = () => {
             <h2>Зараз у кіно</h2>
             <div className="incinema-movies">
                 {results?.map(movie => (
-                    <Link to={`movie/${movie.id}`}>
-                        <div key={movie.id} className="incinema-movies-item">
+                    <Link key={movie.id} to={`movie/${movie.id}`}>
+                        <div  className="incinema-movies-item">
                             <span>{movie.release_date}</span>
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="Poster" />
                             <span>{movie.title}</span>

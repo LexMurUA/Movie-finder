@@ -32,7 +32,7 @@ export const MoviePage = () => {
       
       <div className='container-movie-page-detail'>
         <div className='container-movie-page-detail-info'>
-          <div className='mini'>
+          <div className='mini mini-genres'>
             <span><b>Жанр: </b></span>
             {genres?.map((category, idx) => (
               <span key={idx}>{category.name}</span>

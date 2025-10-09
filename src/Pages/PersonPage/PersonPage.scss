@@ -4,12 +4,10 @@
   margin: 20px 0;
   padding: 15px;
   display: flex;
+  gap: 2px;
   position: relative;
-  flex-wrap: wrap;
   border: 2px solid $border_color_main;
   background-color: $main_color_theme;
-  
-
   &-header {
     position: sticky;
     top: 0;
@@ -22,83 +20,119 @@
       width: 15vw;
     }
   }
-
-  &-info {
-   
+  &-box{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-    max-width: 10vw;
-  }
-
-  &-biography {
-    padding: 15px;
-    text-align: start;
-    max-width: 65vw;
-    border-left: 2px dotted $border_color_main;
-    display: flex;
-    flex-direction: column;
-    &-pannel{
-      width: 65vw;
+  
+    &-info {
+      min-width: 100px;
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px;
-      button{
-        padding: 10px;
-        background-color: transparent;
-        border-radius: 25px;
-        border: 1px solid $border_color_main;
-       margin: 0 10px;
-      }
-      button:hover{
-        background-color: rgba(1, 1, 1, 0.315);
-        color: white;
-        font-weight: bold;
-       
-      }
-
-    }
-    article{
-      display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    gap: 5px;
-    }
-    &-projects,&-tvs {
-      a{
-        font-style: none;
-      }
-      background-color: rgba(0, 0, 0, 0.327);
-      border-radius: 25px;
-      border: 1px solid $border_color_main;
-      width: 60vw;
-      margin-top: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+      flex-direction: column;
       gap: 10px;
       padding: 10px;
-      &-icon {
-        @include mobileClick();
+      max-width: 10vw;
+    }
+  
+    &-biography {
+      padding: 15px;
+      text-align: start;
+      max-width: 65vw;
+      border-left: 2px dotted $border_color_main;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      &-pannel{
+        width: 65vw;
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-        span{
-          text-align: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px;
+        button{
+          padding: 10px;
+          background-color: transparent;
+          border-radius: 25px;
+          border: 1px solid $border_color_main;
+         margin: 0 10px;
         }
-
-        img {
-          width: 8vw;
+        button:hover{
+          background-color: rgba(1, 1, 1, 0.315);
+          color: white;
+          font-weight: bold;
+         
         }
-
-        span {
-          width: 8vw;
-        }
-
+  
       }
+      article{
+        display: flex;
+      flex-direction: column;
+      max-height: 100%;
+      gap: 5px;
+      }
+      &-projects,&-tvs {
+        a{
+          font-style: none;
+        }
+        background-color: rgba(0, 0, 0, 0.327);
+        border-radius: 25px;
+        border: 1px solid $border_color_main;
+        width: 60vw;
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 10px;
+        padding: 10px;
+        &-icon {
+          @include mobileClick();
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          span{
+            text-align: center;
+          }
+  
+          img {
+            width: 8vw;
+          }
+  
+          span {
+            width: 8vw;
+             @extend .protect-text;
+          }
+  
+        }
+        
+      }
+    }
+  }
+
+}
+
+@include breakPoint(desktop){
+  .identity{
+    background-color: greenyellow;
+  }
+}
+@include breakPoint(laptop){
+  .identity{
+    background-color: rgb(255, 0, 221);
+  }
+}
+@include breakPoint(tablet){
+  .identity{
+    background-color: rgb(5, 0, 255);
+    &-box{
+      flex-direction: column;
       
+      &-info{
+        max-width: 100%;
+        span{
+          text-align: start;
+        }
+        
+
+        
+      }
     }
   }
 }

@@ -62,4 +62,3 @@ export const Search = () => {
   )
 }
 
-// results && results?.length > 14 ? results?.slice(0, 14)

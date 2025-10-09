@@ -47,7 +47,9 @@
                 flex-direction: column;
                 align-self: start;
                 padding: 5px;
-
+                span{
+                    border-bottom: 1px dotted $border_color_main;
+                }
                 img {
                     object-fit: cover;
                     width: 100%;
@@ -137,3 +139,50 @@
 
 
 }
+
+
+
+
+@include breakPoint(laptop){
+.container-tv-page{
+        &-body {
+        flex-direction: column;
+
+        &-info {
+         display: flex;
+         flex-wrap: wrap;
+            justify-content: center;
+
+            .mini {
+                width: 100%;
+            }
+
+            .mini:nth-child(1){
+                width: 35vw;
+            }
+
+            .seasons {
+               flex-wrap: wrap;
+
+                
+
+            }
+
+        }
+
+     
+    }
+
+}
+}
+
+@include breakPoint(tablet){
+.container-tv-page{
+    &-header{
+        h3{
+            width: 100%;
+        }
+    }
+}
+}
+

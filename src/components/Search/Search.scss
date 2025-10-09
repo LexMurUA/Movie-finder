@@ -117,10 +117,7 @@
     .header-search {
         &-panel {
 
-            &-results{
-    
-                background-color: greenyellow;
-            }
+
             &-bar{
                   img{
              width: 25px;
@@ -137,8 +134,10 @@
         &-panel {
 
             &-results{
-    
-                background-color: red;
+                &-item{
+                    width: 55px;
+                    height: 110px;
+                }
             }
             &-bar{
                 flex-direction: column-reverse;
