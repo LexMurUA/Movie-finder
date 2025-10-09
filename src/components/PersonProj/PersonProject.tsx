@@ -9,9 +9,6 @@ export const PersonProject = ({
 }: PersonProjectType) => {
 
 
-
-
-
     return (
         <div className='project'>
             <div className='project-header'>

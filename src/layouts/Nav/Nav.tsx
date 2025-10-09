@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import home from '../../assets/images/home.png';
 import left from '../../assets/images/left-arrow.png';
@@ -10,13 +10,17 @@ import './Nav.scss';
 export const Nav = () => {
     const { setContentType, setPopularOrTopRated,  location, setSearchValue } = useMoviesContext()
     const { setTopMoviesPage, navigate } = useMoviesContext()
-
+    const [openMenu,setOpenMenu] = useState<string | null>(null)
 
     const changeCategory = (tvOrMovie: 'tv' | 'movie' | 'person', topRatedOrPopular: 'top_rated' | 'popular') => {
         setContentType(tvOrMovie);
         setPopularOrTopRated(topRatedOrPopular)
+        setOpenMenu(null)
     }
 
+    const toggleMenu = (menu:string)=>{
+        setOpenMenu(openMenu === menu ? null : menu)
+    }
 
     useEffect(() => {
 
@@ -32,7 +36,7 @@ export const Nav = () => {
             <button> <Link to='/'><img src={home} alt="On Main" /></Link>  </button>
 
 
-            <div className='container-nav-movies'>
+            <div onClick={() => toggleMenu('movies')} className={`container-nav-movies ${openMenu === 'movies' ? 'active' : ''}`}>
                 Фільми
                 <div className='container-nav-movies-bar' >
                     <ul>
@@ -42,7 +46,7 @@ export const Nav = () => {
                 </div>
 
             </div>
-            <div className='container-nav-tv'>
+            <div onClick={() => toggleMenu('tv')} className={`container-nav-tv ${openMenu === 'tv' ? 'active' : ''}`}>
                 Серіали
                 <div className='container-nav-tv-bar'>
                     <ul>
@@ -54,7 +58,7 @@ export const Nav = () => {
                 </div>
             </div>
 
-            <div className='container-nav-people'>
+            <div onClick={() => toggleMenu('people')} className={`container-nav-people ${openMenu === 'people' ? 'active' : ''}`}>
                 Найпопулярніші люди
                 <div className='container-nav-people-bar'>
                     <ul>

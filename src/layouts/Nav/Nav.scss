@@ -13,13 +13,15 @@
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     z-index: 1;
-    
-    img{
+
+    img {
         width: 2vw;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
+
     &-movies,
     &-people,
     &-tv {
@@ -32,21 +34,40 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include mobileClick();
+
+        &.active &-bar {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            z-index: 5;
+        }
+
+        @media (hover: hover) {
+            &:hover &-bar {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                z-index: 5;
+            }
+        }
+
         &-bar {
-            
-            ul{
+
+            ul {
                 display: flex;
                 justify-content: center;
                 list-style: none;
                 padding: 0 10px;
                 width: auto;
-                li{
+
+                li {
                     padding: 5px;
                     width: 90px;
                     font-size: .9vw;
                 }
             }
-           
+
             display: block;
             opacity: .5;
             visibility: hidden;
@@ -57,26 +78,24 @@
             color: white;
             padding: 10px;
             border-radius: 25px;
-            
+
             font-size: .8vw;
         }
-        &-bar li:hover{
+
+        &-bar li:hover {
             color: $main_text_color;
             font-weight: bold;
             border: 1px solid $border_color_main;
             background-color: $second_text_color;
-            
+
         }
 
-        &:hover &-bar {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            z-index: 5;
-        }
-
+   
     }
-    &-movies:hover,&-tv:hover,&-people:hover{
+
+    &-movies:hover,
+    &-tv:hover,
+    &-people:hover {
         border: 2px solid yellow;
     }
 
@@ -84,35 +103,39 @@
 
 
 @include breakPoint(tablet) {
-.container-nav{
-    gap: 5px;
-    button{
-        width: 50px;
-        height: 50px;
+    .container-nav {
+        gap: 5px;
+
+        button {
+            width: 50px;
+            height: 50px;
+        }
+
+        &-movies,
+        &-people,
+        &-tv {
+            height: 50px;
+            max-width: 120px;
+            font-size: clamp(.5rem, .8vw, 2rem);
+        }
     }
-    &-movies,
-    &-people,
-    &-tv {
-        height: 50px;
-        max-width: 120px;
-        font-size: clamp(.5rem,.8vw,2rem);
-  }
-}
 }
 
 @include breakPoint(phone) {
-.container-nav{
-    gap: 5px;
-    button{
-        width: 25px;
-        height: 25px;
+    .container-nav {
+        gap: 5px;
+
+        button {
+            width: 25px;
+            height: 25px;
+        }
+
+        &-movies,
+        &-people,
+        &-tv {
+            height: 25px;
+            max-width: 120px;
+
+        }
     }
-    &-movies,
-    &-people,
-    &-tv {
-        height: 25px;
-        max-width: 120px;
-        
-  }
-}
 }
