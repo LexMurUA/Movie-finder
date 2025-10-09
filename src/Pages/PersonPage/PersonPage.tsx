@@ -50,8 +50,8 @@ export const PersonPage = () => {
           <span><b>Популярніcть:</b> {popularity}</span>
         </div>
       </div>
-      
-      <div className='identity-box'> 
+
+      <div className='identity-box'>
         <div className='identity-box-info'>
           <span><b>Дата народження:</b> {birthday}</span>
           <span><b>Місце народження:</b> {place_of_birth}</span>
@@ -77,8 +77,8 @@ export const PersonPage = () => {
           {isShowProjects && (
             <div className='identity-box-biography-projects'>
               {loadingProjects ? <Loading /> : (
-                cast?.map(film => (
-                  <Link to={`/movie/${film.id}`}>
+                cast?.map((film, idx) => (
+                  <Link key={idx} to={`/movie/${film.id}`}>
                     <div key={film.id} className='identity-box-biography-projects-icon'>
                       <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt={'Зображення додається...'} />
                       <span>{film.title}</span>
@@ -95,8 +95,8 @@ export const PersonPage = () => {
           {isShowSerials && (
             <div className='identity-box-biography-projects'>
               {loadingSerials ? <Loading /> : (
-                serials?.map((serial) => (
-                  <Link to={`/tv/${serial.id}`}>
+                serials?.map((serial, idx) => (
+                  <Link key={idx} to={`/tv/${serial.id}`}>
                     <div key={serial.id} className='identity-box-biography-tvs-icon'>
                       <img src={`https://image.tmdb.org/t/p/w500${serial.poster_path}`} alt={'Зображення додається...'} />
                       <span>{serial.original_name}</span>
