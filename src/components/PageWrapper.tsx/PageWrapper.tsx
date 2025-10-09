@@ -7,9 +7,9 @@ import { useReducedMotion, type MotionProps,motion } from 'framer-motion';
 
 
 const variants = {
-  initial: { opacity: 0, x: 50 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -50 }
+  initial: { opacity: 0, y: -50 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 50 }
 };
 
 export const PageWrapper: React.FC<Props> = ({ children, className }) => {

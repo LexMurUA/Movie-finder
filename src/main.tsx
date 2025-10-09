@@ -24,7 +24,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode='wait'>
       <Routes location={location} key={location.pathname}>
-        <Route path='/' element={<PageWrapper><App /></PageWrapper>}>
+        <Route path='/' element={<App />}>
           <Route index element={<PageWrapper><MainPage /></PageWrapper>} />
           <Route path='/moviesTopRated' element={<PageWrapper><TopRatedMovies /></PageWrapper>} />
           <Route path='/moviesPopular' element={<PageWrapper><TopRatedMovies /></PageWrapper>} />
