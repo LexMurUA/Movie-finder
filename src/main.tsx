@@ -39,8 +39,7 @@ function AnimatedRoutes() {
 
 
           <Route path='/search/:value' element={<PageWrapper><SearchPage /></PageWrapper>} />
-          <Route path='/*' element={<PageWrapper><ErrorPage /> </PageWrapper>} />
-
+          <Route path='*' element={<PageWrapper><ErrorPage /> </PageWrapper>} />
         </Route>
 
       </Routes>

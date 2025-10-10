@@ -4,6 +4,9 @@
 .container-error{
   background-image: url('../../assets/images/Stop.gif');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position:center;
+  background-size: 400px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
